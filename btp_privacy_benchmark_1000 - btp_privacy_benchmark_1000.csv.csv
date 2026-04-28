@@ -1,0 +1,881 @@
+domain,intent,original_query,expected_S_drop,expected_S_abstract,expected_T_core
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],[],"['Albuterol', 'coffee','asthma']"
+Finance,check_account_balance,"Hi, my name is Jane Smith, and my account number is 1234567890. What is my current balance?",['Jane Smith'],['1234567890'],['current balance']
+Software Engineering,fix_api_error,"I am trying to use the GitHub API to fetch user data, but I am getting a 401 error. My API key is 1234567890abcdef. Help!",['1234567890abcdef'],[],"['user data', 'fetch','GitHub API', '401 error']"
+Healthcare,check_disease_risk,I am a 35-year-old male with a family history of heart disease. What are my chances of getting heart disease?,['35-year-old male'],['heart disease'],['family history']
+Finance,apply_for_loan,"My name is Bob Johnson, and I want to apply for a mortgage loan. My annual income is $100,000, and I have a credit score of 750.",['Bob Johnson'],"['$100,000', '750']",['mortgage loan']
+Software Engineering,optimize_code,"I am using Python to develop a machine learning model, but it is running slowly. Can you help me optimize the code?",[],"['Python', 'machine learning model']",['optimize code']
+Healthcare,check_medication_side_effects,"I am taking medication for diabetes, and I want to know if it will interact with my blood pressure medication.",[],"['diabetes', 'blood pressure medication']",['medication interaction']
+Finance,check_investment_returns,"I invested $10,000 in a mutual fund, and I want to know how much it has grown in value.",[],"['$10,000']","['mutual fund', 'investment returns']"
+Software Engineering,fix_bug,I am getting a null pointer exception when I try to access a variable in my Java code. Can you help me fix it?,[],"['null pointer exception', 'Java code']",['variable access']
+Healthcare,check_symptom_severity,"I have a headache and a fever, and I want to know if I should go to the hospital.",[],"['headache', 'fever']",['hospital visit']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,transfer_funds,I want to send $1000 from my account 1234567890 to my friend's account 9876543210.,"['1234567890', '9876543210']",['$1000'],['transfer funds']
+Software Engineering,debug_code,My name is Jane Smith and I'm getting an error in my Python script using the requests library to call the GitHub API.,['Jane Smith'],"['requests library', 'GitHub API']","['Python script', 'error']"
+Healthcare,book_appointment,I have diabetes and need to schedule a doctor's appointment at 123 Main St. My name is Bob Johnson.,"['Bob Johnson', '123 Main St']",['diabetes'],"[""doctor's appointment""]"
+Finance,check_balance,What is my current balance in account 1111111111?,['1111111111'],[],['current balance']
+Software Engineering,optimize_performance,How can I improve the performance of my Java application using the Spring framework?,[],['Spring framework'],"['Java application', 'performance']"
+Healthcare,check_insurance_coverage,Does my insurance plan cover treatment for cancer? My policy number is 123456.,['123456'],['cancer'],"['insurance plan', 'treatment']"
+Finance,apply_for_loan,I want to apply for a $50000 loan with an interest rate of 6%. My SSN is 123-45-6789.,['123-45-6789'],"['$50000', '6%']",['loan application']
+Software Engineering,fix_bug,I'm getting a NullPointerException in my C++ code using the Qt library. Can you help me fix it?,[],"['Qt library', 'NullPointerException']","['C++ code', 'bug fix']"
+Healthcare,check_vaccine_availability,Is the COVID-19 vaccine available at the hospital on 456 Elm St? My name is Mike Davis.,"['Mike Davis', '456 Elm St']",['COVID-19 vaccine'],"['hospital', 'vaccine availability']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,transfer_funds,"I, Emily Smith, with account number 123456789, want to send $1000 to my friend's account 987654321.","['Emily Smith', '123456789', '987654321']",['$1000'],['transfer funds']
+Software Engineering,debug_code,"My name is David Lee, and I'm having issues with my Python script that uses the requests library to fetch data from https://api.example.com/data.",['David Lee'],"['requests library', 'https://api.example.com/data']","['Python script', 'fetch data']"
+Healthcare,diagnose_symptoms,"I'm Jane Smith, and I have a fever of 102°F, cough, and shortness of breath. What could be wrong with me?",['Jane Smith'],"['fever of 102°F', 'cough', 'shortness of breath']",['diagnose symptoms']
+Finance,check_account_balance,"My name is Michael Brown, and my account number is 111111111. What's my current balance?","['Michael Brown', '111111111']",[],['check account balance']
+Software Engineering,optimize_performance,"I'm working on a project that uses the TensorFlow library, and I want to improve the performance of my machine learning model.",[],['TensorFlow library'],"['optimize performance', 'machine learning model']"
+Healthcare,find_medical_specialist,"I'm looking for a cardiologist in New York City who accepts my insurance, Blue Cross Blue Shield.",['New York City'],"['cardiologist', 'Blue Cross Blue Shield']",['find medical specialist']
+Finance,apply_for_loan,"My name is Sophia Patel, and I want to apply for a mortgage loan of $500,000 with an interest rate of 4%.",['Sophia Patel'],"['$500,000', '4%']","['apply for loan', 'mortgage']"
+Software Engineering,fix_bug,I'm getting an error with my Java code that uses the Spring framework to connect to a MySQL database.,[],"['Java code', 'Spring framework', 'MySQL database']",['fix bug']
+Healthcare,track_vaccination_schedule,"My child, Emily, is 12 years old and needs to get the MMR vaccine. What's the recommended vaccination schedule?",['Emily'],"['MMR vaccine', '12 years old']",['track vaccination schedule']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,calculate_investment_return,My SSN is 123-45-6789. I have $1000 invested in Apple stocks. What will be my return after 5 years?,['123-45-6789'],"['$1000', 'Apple stocks']",['5 years']
+Software Engineering,debug_code_issue,I am working on a project located at 123 Main Street. My code has a bug in the login API endpoint. Can you help me fix it?,['123 Main Street'],['login API endpoint'],"['bug', 'project']"
+Healthcare,check_symptom_severity,"My patient, Jane Smith, has been experiencing severe headaches. What could be the possible causes?",['Jane Smith'],['severe headaches'],['possible causes']
+Finance,apply_for_loan,My name is Michael Brown. I have a credit score of 750 and want to apply for a $5000 loan. What are my chances?,['Michael Brown'],"['credit score of 750', '$5000 loan']",['loan application']
+Software Engineering,optimize_code_performance,I am working on a project with a deadline of next Friday. My code is slow and uses the Python programming language. Can you help me optimize it?,['next Friday'],['Python programming language'],"['code optimization', 'project']"
+Healthcare,check_medical_history,My medical record number is 12345. I have a history of diabetes. What are my risks for heart disease?,['12345'],['diabetes'],"['heart disease', 'medical history']"
+Finance,calculate_tax_liability,My address is 456 Elm Street. I have an income of $50000 and want to know my tax liability. Can you help me?,['456 Elm Street'],['$50000'],"['tax liability', 'income']"
+Software Engineering,fix_compilation_error,I am working on a project using the Java programming language. My code has a compilation error on line 10. Can you help me fix it?,[],"['Java programming language', 'line 10']","['compilation error', 'project']"
+Healthcare,check_vaccination_status,"My patient, David Lee, has a vaccination record. What are his vaccination status and any potential allergy risks?",['David Lee'],['vaccination record'],"['vaccination status', 'allergy risks']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"Hi, my SSN is 123-45-6789. I want to know my account balance for my savings account at Bank of America.",['123-45-6789'],"['savings account', 'Bank of America']",['account balance']
+Software Engineering,debug_code_issue,"I am working on a project with my colleague, Jane Smith. We are using Python and the TensorFlow library. Our model is not training properly.",['Jane Smith'],"['Python', 'TensorFlow']",['model training']
+Healthcare,check_disease_risk,I am a 35-year-old female with a family history of breast cancer. What is my risk of developing breast cancer?,['35-year-old female'],"['breast cancer', 'family history']",['disease risk']
+Finance,apply_for_loan,"My name is Michael Brown and I have an annual income of $50,000. I want to apply for a mortgage loan from Wells Fargo.",['Michael Brown'],"['$50,000', 'Wells Fargo']","['mortgage loan', 'annual income']"
+Software Engineering,optimize_code_performance,I am working on a project using Java and the Apache Spark library. My code is running slowly and I need help optimizing it.,[],"['Java', 'Apache Spark']","['code optimization', 'performance']"
+Healthcare,check_medication_side_effects,I am taking Metformin for diabetes. What are the potential side effects of this medication?,[],"['Metformin', 'diabetes']","['side effects', 'medication']"
+Finance,check_investment_portfolio,I have a investment portfolio with Fidelity Investments. Can you help me review my portfolio and provide recommendations?,[],['Fidelity Investments'],"['investment portfolio', 'recommendations']"
+Software Engineering,debug_api_issue,"I am experiencing issues with the GitHub API. I am trying to use the API to retrieve repository information, but I am getting an error.",[],['GitHub API'],"['API issue', 'repository information']"
+Healthcare,check_insurance_coverage,I have health insurance with UnitedHealthcare. Does my plan cover visits to a specialist?,[],['UnitedHealthcare'],"['health insurance', 'specialist visit']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,My social security number is 123-45-6789. What is the balance of my account 1234567890 at Bank of America?,['123-45-6789'],"['1234567890', 'Bank of America']",['account balance']
+Software Engineering,fix_bug,My name is Jane Smith. I am having trouble with the login feature on the GitHub repository https://github.com/user/repository. The error message is 'invalid credentials'.,['Jane Smith'],"['https://github.com/user/repository', 'invalid credentials']","['login feature', 'GitHub']"
+Healthcare,diagnose_symptoms,I am a 30-year-old female with a fever of 102 degrees and a cough. What could be the cause of my symptoms?,['30-year-old female'],"['fever of 102 degrees', 'cough']",['symptoms']
+Finance,apply_for_loan,"My address is 123 Main Street. I would like to apply for a mortgage loan of $200,000 at Wells Fargo.",['123 Main Street'],"['$200,000', 'Wells Fargo']",['mortgage loan']
+Software Engineering,optimize_code,I am using the TensorFlow library to build a machine learning model. The code is running slow. Can you help me optimize it?,[],['TensorFlow'],"['machine learning model', 'optimize code']"
+Healthcare,check_insurance_coverage,My insurance provider is Blue Cross Blue Shield. Does my plan cover the medication Metformin?,[],"['Blue Cross Blue Shield', 'Metformin']",['insurance coverage']
+Finance,check_credit_score,My social security number is 987-65-4321. What is my credit score?,['987-65-4321'],[],['credit score']
+Software Engineering,troubleshoot_error,I am getting a '404 Not Found' error when trying to access the API endpoint https://api.example.com/users. What could be the cause?,[],"['https://api.example.com/users', '404 Not Found']",['API endpoint']
+Healthcare,check_vaccine_schedule,My child is 2 years old. What is the recommended vaccine schedule for their age?,['2 years old'],[],['vaccine schedule']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,transfer_funds,"I, Jane Smith, want to transfer $1000 from my checking account 123456789 to my savings account.",['Jane Smith'],"['$1000', 'checking account 123456789']","['transfer', 'savings account']"
+Software Engineering,debug_code,I am having issues with a Python script that uses the requests library to fetch data from https://api.example.com/endpoint. My name is Bob Johnson.,['Bob Johnson'],"['requests library', 'https://api.example.com/endpoint']","['Python script', 'fetch data']"
+Healthcare,diagnose_symptoms,"My patient, Emily, has a fever of 102°F and is experiencing headaches. What could be the cause?",['Emily'],"['fever of 102°F', 'headaches']","['patient', 'cause']"
+Finance,check_account_balance,"What is the current balance of my account 987654321, which is held by Michael Brown?",['Michael Brown'],['account 987654321'],['current balance']
+Software Engineering,optimize_performance,How can I improve the performance of my Java application that uses the Hibernate framework and connects to a MySQL database on localhost:3306?,[],"['Hibernate framework', 'MySQL database on localhost:3306']","['Java application', 'improve performance']"
+Healthcare,recommend_treatment,"A patient, David Lee, has been diagnosed with diabetes and is taking Metformin. What are the possible side effects?",['David Lee'],"['diabetes', 'Metformin']","['patient', 'side effects']"
+Finance,apply_for_loan,"I, Sarah Taylor, want to apply for a mortgage loan of $500,000 with an interest rate of 4%.",['Sarah Taylor'],"['$500,000', '4%']","['mortgage loan', 'apply']"
+Software Engineering,fix_bug,There is a bug in the login functionality of our web application that uses the OAuth protocol and is hosted on https://example.com.,[],"['OAuth protocol', 'https://example.com']","['login functionality', 'web application', 'bug']"
+Healthcare,schedule_appointment,"I need to schedule an appointment with Dr. Smith for my patient, James, who has an appointment ID of 12345.","['James', 'Dr. Smith']",['appointment ID of 12345'],"['schedule appointment', 'patient']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"Hi, my SSN is 123-45-6789 and my account number is 9876. What is my current balance?",['123-45-6789'],['9876'],['current balance']
+Software Engineering,fix_api_error,My name is Jane Smith and I am getting a 404 error when trying to access the https://api.example.com/users endpoint.,['Jane Smith'],['https://api.example.com/users'],['404 error']
+Healthcare,book_doctor_appointment,I am Emily Chen and I need to schedule an appointment with Dr. Lee for my diabetes checkup.,['Emily Chen'],['diabetes'],"['Dr. Lee', 'schedule an appointment']"
+Finance,transfer_funds,My name is Michael Brown and I want to transfer $1000 from my account 1234 to my friend's account 5678.,['Michael Brown'],"['$1000', '1234', '5678']",['transfer funds']
+Software Engineering,debug_code,I am David Kim and I am getting a syntax error on line 10 of my Python code when trying to compile it.,['David Kim'],"['line 10', 'Python code']","['syntax error', 'compile']"
+Healthcare,check_insurance_coverage,My name is Sophia Patel and I have Blue Cross insurance. Am I covered for my upcoming surgery?,['Sophia Patel'],"['Blue Cross', 'surgery']",['insurance coverage']
+Finance,apply_for_loan,I am Olivia Lee and I want to apply for a $5000 loan with an interest rate of 6%. What are the terms?,['Olivia Lee'],"['$5000', '6%']","['loan application', 'terms']"
+Software Engineering,optimize_algorithm,My name is Ethan Hall and I need to optimize my sorting algorithm to improve performance.,['Ethan Hall'],['sorting algorithm'],"['optimize', 'performance']"
+Healthcare,check_medical_history,I am Jackson White and I have a family history of heart disease. What are my risks?,['Jackson White'],['heart disease'],"['family history', 'risks']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"I am Emily, my social security number is 123-45-6789, and I have an account at Bank of America. What is my current balance?","['Emily', '123-45-6789']",[],['Bank of America']
+Software Engineering,api_endpoint_info,I am a developer and I want to know more about the GitHub API endpoint https://api.github.com/users/octocat. Can you tell me about it?,[],['https://api.github.com/users/octocat'],['GitHub API']
+Healthcare,disease_symptom_check,"My patient, Jane Smith, has diabetes and is experiencing nausea and vomiting. What could be the cause?",['Jane Smith'],['diabetes'],"['nausea', 'vomiting']"
+Finance,investment_advice,"I have $10,000 to invest and I am interested in stocks. Can you advise me on which stocks to buy?",[],"['$10,000']",['stocks']
+Software Engineering,code_error_resolution,I am getting an error in my Python code when trying to connect to the database at 192.168.1.100. Can you help me resolve it?,[],['192.168.1.100'],"['Python', 'database']"
+Healthcare,medication_side_effect,I am taking medication for high blood pressure and I am experiencing dizziness. Can you tell me if this is a common side effect?,[],['high blood pressure'],"['dizziness', 'medication']"
+Finance,credit_score_check,I am David and my social security number is 987-65-4321. Can you tell me my current credit score?,"['David', '987-65-4321']",[],[]
+Software Engineering,algorithm_optimization,I am working on an algorithm to optimize the performance of a machine learning model. Can you provide me with some tips?,[],[],"['machine learning model', 'algorithm optimization']"
+Healthcare,treatment_option,My doctor's name is Dr. Smith and I have been diagnosed with cancer. What are my treatment options?,['Dr. Smith'],['cancer'],['treatment options']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,transfer_funds,"I, Emily Smith, want to transfer $500 from my checking account 1234 to my savings account 5678.",['Emily Smith'],['$500'],"['checking account', 'savings account']"
+Software Engineering,debug_code,My name is David Lee and I am experiencing issues with my Python code using the requests library to connect to the GitHub API.,['David Lee'],"['Python', 'requests library', 'GitHub API']","['connect', 'issues']"
+Healthcare,book_appointment,I am Jane Doe and I need to schedule an appointment with Dr. Smith for my diabetes check-up.,['Jane Doe'],['diabetes'],"['Dr. Smith', 'appointment']"
+Finance,check_balance,My social security number is 123-45-6789. Can I get the balance of my account 9012?,['123-45-6789'],['account 9012'],['balance']
+Software Engineering,optimize_performance,The API endpoint /users is experiencing high latency. Can you help me optimize it?,[],['/users'],"['high latency', 'optimize']"
+Healthcare,check_insurance_coverage,My name is Michael Brown and I have a Blue Cross Blue Shield insurance plan. Does it cover my knee surgery?,['Michael Brown'],"['knee surgery', 'Blue Cross Blue Shield']","['insurance plan', 'coverage']"
+Finance,apply_for_loan,"I, Sarah Taylor, want to apply for a $10,000 loan with an interest rate of 6%.",['Sarah Taylor'],"['$10,000', '6%']","['loan', 'apply']"
+Software Engineering,fix_bug,The bug report #1234 is related to the login feature. Can you help me fix it?,[],"['bug report #1234', 'login feature']",['fix']
+Healthcare,check_vaccination_schedule,"My child, Emily, is 5 years old. What vaccinations does she need to get?",['Emily'],['5 years old'],['vaccinations']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,transfer_funds,"I, Jane Smith, want to transfer $1000 from my account 123456789 to my friend's account 987654321.",['Jane Smith'],['$1000'],['transfer funds']
+Software Engineering,api_endpoint,My name is Bob Johnson. I am trying to access the https://api.example.com/users endpoint but keep getting a 404 error.,['Bob Johnson'],['https://api.example.com/users'],['404 error']
+Healthcare,symptom_check,I have been experiencing headaches and fever for the past 3 days. Can you tell me what might be causing it?,[],"['headaches', 'fever']",['3 days']
+Finance,account_balance,What is the current balance of my account 123456789?,[],['123456789'],['current balance']
+Software Engineering,bug_report,I am experiencing a bug with the login feature on the https://example.com website.,[],"['https://example.com', 'login feature']",['bug']
+Healthcare,medication_refill,My name is Alice Brown. I need to refill my prescription for Lipitor.,['Alice Brown'],['Lipitor'],['refill prescription']
+Finance,investment_advice,I have $5000 to invest. What are some good investment options?,[],['$5000'],['investment options']
+Software Engineering,code_review,Can you review my code for the https://github.com/example/repository project?,[],['https://github.com/example/repository'],['code review']
+Healthcare,disease_risk,I have a family history of diabetes. What are my chances of getting it?,[],['diabetes'],['family history']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,I am Jane Smith with SSN 123-45-6789. What is my current account balance?,"['Jane Smith', '123-45-6789']",[],['account balance']
+Software Engineering,fix_api_error,The API endpoint https://api.example.com/users is returning a 500 error. How can I fix this?,[],['https://api.example.com/users'],['500 error']
+Healthcare,schedule_appointment,I need to schedule an appointment with Dr. Smith at 123 Main St. Can I get an appointment on Friday?,"['Dr. Smith', '123 Main St']",[],"['Friday', 'appointment']"
+Finance,transfer_funds,I want to transfer $1000 from my account 1234567890 to account 9876543210.,"['1234567890', '9876543210']",['$1000'],['transfer funds']
+Software Engineering,debug_code,My code is throwing an error on line 10. The error message is 'undefined variable'. How can I fix this?,[],[],"['line 10', 'undefined variable']"
+Healthcare,check_insurance_coverage,My name is Bob Johnson and I have insurance policy 123456. Does my insurance cover the medication Lipitor?,"['Bob Johnson', '123456']",['Lipitor'],['insurance coverage']
+Finance,check_credit_score,I am Michael Brown with SSN 987-65-4321. What is my current credit score?,"['Michael Brown', '987-65-4321']",[],['credit score']
+Software Engineering,optimize_performance,The API endpoint https://api.example.com/products is slow. How can I optimize its performance?,[],['https://api.example.com/products'],['performance optimization']
+Healthcare,check_disease_risk,I am a 40-year-old male with a family history of diabetes. What is my risk of developing diabetes?,['40-year-old male'],['diabetes'],"['family history', 'risk assessment']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,I'm Jane Smith with SSN 123-45-6789. What's my account balance?,"['Jane Smith', '123-45-6789']",[],['account balance']
+Software Engineering,fix_api_error,My name is Bob and I'm getting a 404 error on the /users endpoint. Help!,['Bob'],['/users'],['404 error']
+Healthcare,diagnose_symptoms,I have a fever of 103°F and a headache. What could be wrong?,[],"['fever', 'headache']",['103°F']
+Finance,transfer_funds,Transfer $1000 from my account to my friend's account at Bank of America.,[],"['$1000', 'Bank of America']",['transfer funds']
+Software Engineering,optimize_code,How can I improve the performance of my Python script that uses the pandas library?,[],['pandas'],"['Python script', 'performance']"
+Healthcare,check_insurance_coverage,Does my insurance plan cover treatment for diabetes?,[],['diabetes'],"['insurance plan', 'treatment']"
+Finance,apply_for_loan,"I want to apply for a mortgage loan of $200,000. What are the requirements?",[],"['$200,000']","['mortgage loan', 'requirements']"
+Software Engineering,debug_code,I'm getting a NullPointerException in my Java code. Can you help me fix it?,[],['NullPointerException'],['Java code']
+Healthcare,find_doctor,I need to find a doctor who specializes in cardiology in New York City.,[],['cardiology'],"['doctor', 'New York City']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"Hello, my SSN is 123-45-6789 and my name is Jane Smith. What is my current account balance?","['Jane Smith', '123-45-6789']",[],['account balance']
+Software Engineering,fix_bug,My name is Bob and I am using Python 3.9. I have a bug in my code that is causing a TypeError. Can you help me?,['Bob'],"['Python 3.9', 'TypeError']","['bug', 'code']"
+Healthcare,schedule_appointment,My name is Emily and I have diabetes. I would like to schedule an appointment with Dr. Lee. My phone number is 555-1234.,"['Emily', '555-1234']",['diabetes'],"['Dr. Lee', 'appointment']"
+Finance,apply_for_loan,"I am Jane Doe and my annual income is $50,000. I would like to apply for a loan of $20,000.",['Jane Doe'],"['$50,000', '$20,000']","['loan', 'apply']"
+Software Engineering,optimize_code,My name is David and I am using Java 11. I have a piece of code that is running slowly and I would like to optimize it.,['David'],['Java 11'],"['code', 'optimize']"
+Healthcare,check_insurance_coverage,My name is Sarah and I have a policy with Blue Cross Blue Shield. Does my insurance cover a visit to a specialist?,['Sarah'],['Blue Cross Blue Shield'],"['insurance', 'specialist']"
+Finance,transfer_funds,"I am Michael and my account number is 123456789. I would like to transfer $1,000 to my savings account.",['Michael'],"['$1,000', '123456789']","['transfer', 'savings account']"
+Software Engineering,debug_code,My name is Olivia and I am using C++ 14. I have a piece of code that is causing a segmentation fault. Can you help me debug it?,['Olivia'],"['C++ 14', 'segmentation fault']","['code', 'debug']"
+Healthcare,check_medical_history,My name is William and I have a history of heart disease. Can you tell me what medications I should avoid?,['William'],['heart disease'],['medications']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,apply_for_loan,"I'm Emily, my SSN is 123-45-6789, and my annual income is $50,000. Can I get a mortgage?","['Emily', '123-45-6789']","['$50,000']",['mortgage']
+Software Engineering,debug_code,"My name is David, and I'm trying to fix a bug in my Python script using the Google Maps API. The error message says 'API key not found.'",['David'],['Google Maps API'],"['Python script', 'API key not found']"
+Healthcare,symptom_checker,"I have a fever of 102°F, and my name is Sarah. I've been experiencing headaches and fatigue for the past week.",['Sarah'],"['fever of 102°F', 'headaches', 'fatigue']",['past week']
+Finance,check_account_balance,"My name is Michael, and my account number is 1234567890. What's my current balance?","['Michael', '1234567890']",[],['current balance']
+Software Engineering,optimize_code,"I'm using the TensorFlow library to build a machine learning model, but it's running slowly. Can you help me optimize it?",[],['TensorFlow library'],"['machine learning model', 'running slowly']"
+Healthcare,find_doctor,"My name is Olivia, and I'm looking for a cardiologist in New York City. I have Blue Cross Blue Shield insurance.",['Olivia'],"['cardiologist', 'New York City', 'Blue Cross Blue Shield']",[]
+Finance,file_tax_return,"I'm John, and my SSN is 987-65-4321. I need help filing my tax return for the 2022 tax year.","['John', '987-65-4321']",['2022 tax year'],['tax return']
+Software Engineering,troubleshoot_error,"My name is William, and I'm getting a 'connection refused' error when trying to access the MySQL database.",['William'],['MySQL database'],['connection refused']
+Healthcare,understand_treatment,"I have diabetes, and my doctor prescribed me Metformin. Can you explain how it works?",[],"['diabetes', 'Metformin']",[]
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"I'm Jane Smith, my social security number is 123-45-6789, and I have an account at Bank of America. What's my current balance?","['Jane Smith', '123-45-6789']",['Bank of America'],['account balance']
+Software Engineering,fix_api_error,"My name is Alex, and I'm trying to use the GitHub API to fetch user data. I'm getting a 401 error on endpoint https://api.github.com/users/octocat.",['Alex'],['https://api.github.com/users/octocat'],"['GitHub API', '401 error']"
+Healthcare,diagnose_symptoms,"Emily, a 30-year-old female, has been experiencing headaches and fever for the past week. She's been taking Tylenol.",['Emily'],"['headaches', 'fever']","['30-year-old female', 'Tylenol']"
+Finance,apply_for_loan,"My name is David, I'm 40 years old, and I have a credit score of 750. I want to apply for a $200,000 mortgage.",['David'],"['$200,000']","['40 years old', 'credit score of 750', 'mortgage']"
+Software Engineering,optimize_code_performance,"I'm using Python 3.9 and trying to optimize the performance of my code, which uses the NumPy library. I'm experiencing slow execution times.",[],['NumPy library'],"['Python 3.9', 'code performance', 'slow execution times']"
+Healthcare,check_insurance_coverage,"My name is Michael, and I have Blue Cross Blue Shield insurance. I want to know if my plan covers diabetes treatment.",['Michael'],['diabetes'],['Blue Cross Blue Shield insurance']
+Finance,transfer_funds,"I'm trying to transfer $1,000 from my account 1234567890 to account 9876543210 at Wells Fargo.",[],"['$1,000', 'account 1234567890', 'account 9876543210']","['Wells Fargo', 'transfer funds']"
+Software Engineering,debug_code_issue,I'm experiencing a null pointer exception in my Java code when trying to access the 'users' endpoint on the Stripe API.,[],"['null pointer exception', ""'users' endpoint on the Stripe API""]",['Java code']
+Healthcare,schedule_appointment,"Dr. Smith, I'm a 25-year-old male, and I need to schedule an appointment for a flu shot at your clinic.",['Dr. Smith'],['flu shot'],"['25-year-old male', 'clinic']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"I am Emily Chen, and my social security number is 123-45-6789. What is my current account balance?","['Emily Chen', '123-45-6789']",[],['current account balance']
+Software Engineering,fix_api_error,"The API endpoint https://api.example.com/users is returning a 500 error. My name is David Lee, and I am using Python 3.9.",['David Lee'],['https://api.example.com/users'],"['500 error', 'Python 3.9']"
+Healthcare,check_insurance_coverage,"My patient, Jane Smith, has a policy number of 987654321. Is she covered for a knee replacement surgery?",['Jane Smith'],['knee replacement surgery'],['policy number 987654321']
+Finance,transfer_funds,"I want to transfer $1000 from my account 123456789 to my friend's account 987654321. My name is Michael Brown, and I have a social security number of 567-89-0123.","['Michael Brown', '567-89-0123']",['$1000'],"['account 123456789', 'account 987654321']"
+Software Engineering,debug_code,"My code is throwing a NullPointerException at line 25. I am using Java 11, and my name is Sophia Patel.",['Sophia Patel'],[],"['NullPointerException', 'line 25', 'Java 11']"
+Healthcare,check_disease_risk,"I am 35 years old, and my family has a history of diabetes. Can I get a risk assessment for developing diabetes? My name is Olivia Lee.",['Olivia Lee'],['diabetes'],"['35 years old', 'family history']"
+Finance,check_credit_score,"My social security number is 901-23-4567, and I want to check my credit score. My name is Ava Kim.","['Ava Kim', '901-23-4567']",[],['credit score']
+Software Engineering,optimize_performance,"My application is running slow, and I am using a MySQL database. Can you help me optimize the performance? My name is Ethan Hall.",['Ethan Hall'],['MySQL database'],['application performance']
+Healthcare,check_treatment_options,"I have been diagnosed with cancer, and I want to know my treatment options. My doctor's name is Dr. Smith, and my medical record number is 123456.",['Dr. Smith'],['cancer'],"['treatment options', 'medical record number 123456']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,I am Jane Smith with SSN 123-45-6789. What is my current balance in my savings account?,"['Jane Smith', '123-45-6789']",['savings account'],['current balance']
+Software Engineering,debug_code,My name is Bob and I am working on a project with API endpoint https://example.com/api/users. I am getting a 404 error.,['Bob'],['https://example.com/api/users'],['404 error']
+Healthcare,book_appointment,I need to schedule an appointment with Dr. Smith for my daughter Emily who has diabetes. She lives at 123 Main St.,"['Emily', '123 Main St']",['diabetes'],"['Dr. Smith', 'schedule an appointment']"
+Finance,transfer_funds,I want to transfer $1000 from my checking account to my savings account. My account number is 1234567890.,['1234567890'],"['$1000', 'checking account', 'savings account']",['transfer funds']
+Software Engineering,optimize_code,I am working on a project with a deadline of Friday and I need to optimize my code for the login feature. The current code is written in Python.,['Friday'],['login feature'],"['optimize code', 'Python']"
+Healthcare,check_insurance_coverage,My name is David and I have insurance with Blue Cross Blue Shield. Does my plan cover chiropractic care?,['David'],"['Blue Cross Blue Shield', 'chiropractic care']",['insurance coverage']
+Finance,apply_for_loan,"I am self-employed and have a monthly income of $5000. I want to apply for a loan of $20,000. My credit score is 700.",[],"['$20,000', '700']","['self-employed', 'monthly income', 'apply for loan']"
+Software Engineering,fix_bug,I am getting a runtime error in my Java code when I try to access the database. The error message is 'connection timed out'.,[],"['Java', 'database', 'connection timed out']","['runtime error', 'fix bug']"
+Healthcare,check_treatment_options,My son has a diagnosis of ADHD and is currently taking Ritalin. What are the alternative treatment options?,['son'],"['ADHD', 'Ritalin']",['alternative treatment options']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,account_balance_inquiry,"Hi, my social security number is 123-45-6789, and I want to know my current balance in my checking account 9876.",['123-45-6789'],['checking account 9876'],['current balance']
+Software Engineering,api_endpoint_info,"My name is Emily, and I need information about the GitHub API endpoint for creating a new repository.",['Emily'],['GitHub API endpoint for creating a new repository'],['new repository']
+Healthcare,disease_symptom_check,"I am Jane Smith, and I have been experiencing symptoms of diabetes. Can you tell me more about it?",['Jane Smith'],['diabetes'],['symptoms']
+Finance,loan_application,"My address is 123 Main St, and I want to apply for a mortgage loan of $500,000.",['123 Main St'],"['$500,000']",['mortgage loan']
+Software Engineering,code_error_debugging,"My name is David, and I am getting a null pointer exception in my Java code. Can you help me debug it?",['David'],['null pointer exception'],['Java code']
+Healthcare,medication_side_effect,"I am taking medication for high blood pressure, and I want to know about potential side effects.",[],['high blood pressure'],"['medication', 'side effects']"
+Finance,investment_advice,"My social security number is 987-65-4321, and I want to invest $10,000 in the stock market.",['987-65-4321'],"['$10,000']",['stock market']
+Software Engineering,algorithm_optimization,"I am working on a project, and I need to optimize my sorting algorithm for better performance.",[],['sorting algorithm'],['performance']
+Healthcare,medical_record_access,"My name is Michael, and I want to access my medical records from my previous doctor.",['Michael'],['medical records'],['previous doctor']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,apply_for_loan,"I'm Emily, my SSN is 123-45-6789, and I have a credit score of 750. Can I get a loan for $10,000?","['Emily', '123-45-6789']","['$10,000']","['credit score of 750', 'loan']"
+Software Engineering,troubleshoot_api_issue,"My name is David, and I'm having trouble with the Google Maps API. I'm getting a 404 error when trying to access https://maps.googleapis.com/maps/api/place/textsearch/json?",['David'],['https://maps.googleapis.com/maps/api/place/textsearch/json'],"['Google Maps API', '404 error']"
+Healthcare,book_doctor_appointment,"I'm Jane, and I need to schedule an appointment with Dr. Smith for my diabetes check-up at 123 Main St.","['Jane', '123 Main St']",['diabetes'],"['Dr. Smith', 'check-up']"
+Finance,check_account_balance,"Hi, I'm Michael, my account number is 987654321, and I want to know my current balance.","['Michael', '987654321']",[],['account balance']
+Software Engineering,debug_code_issue,"My name is Rachel, and I'm having trouble with my Python code. I'm getting a syntax error on line 10 of myscript.py.",['Rachel'],"['myscript.py', 'line 10']","['Python code', 'syntax error']"
+Healthcare,check_insurance_coverage,"I'm Tom, my policy number is ABC123, and I want to know if my insurance covers physical therapy for my knee injury.","['Tom', 'ABC123']",['knee injury'],"['physical therapy', 'insurance coverage']"
+Finance,transfer_funds,"Hi, I'm Sophia, my account number is 111111111, and I want to transfer $500 to my savings account.","['Sophia', '111111111']",['$500'],"['savings account', 'transfer funds']"
+Software Engineering,optimize_database_query,"My name is Olivia, and I'm having trouble with my SQL query. I'm trying to optimize a query on my customers table in mydatabase.db.",['Olivia'],"['mydatabase.db', 'customers table']","['SQL query', 'optimize']"
+Healthcare,check_medical_test_results,"I'm Ethan, my patient ID is 456789, and I want to know the results of my recent blood test.","['Ethan', '456789']",['blood test'],['medical test results']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,My social security number is 123-45-6789. What is the balance of my account 1234567890 at Bank of America?,['123-45-6789'],"['1234567890', 'Bank of America']",['account balance']
+Software Engineering,debug_code,I am having trouble with my code at https://github.com/user/repository. The error message is 'undefined variable'. Can you help me?,['https://github.com/user/repository'],['undefined variable'],"['code', 'error message']"
+Healthcare,check_insurance_coverage,My name is Jane Smith. I have diabetes and I am on Medicare. Does my insurance cover the cost of insulin?,['Jane Smith'],"['diabetes', 'Medicare']","['insulin', 'insurance coverage']"
+Finance,apply_for_loan,"My address is 123 Main Street. I want to apply for a loan of $10,000 at a 5% interest rate. What are my chances of approval?",['123 Main Street'],"['$10,000', '5%']","['loan application', 'interest rate']"
+Software Engineering,improve_code_performance,I am using Python 3.9 and my code is running slow. Can you help me optimize it?,[],['Python 3.9'],"['code performance', 'optimization']"
+Healthcare,check_treatment_options,My doctor's name is Dr. John. I have been diagnosed with cancer and I want to know what treatment options are available.,['Dr. John'],['cancer'],['treatment options']
+Finance,check_investment_portfolio,My investment account number is 1234567890. What is the current value of my portfolio?,['1234567890'],['investment portfolio'],['account value']
+Software Engineering,fix_bug,I am getting a 'connection refused' error when I try to access the API at https://api.example.com/endpoint. Can you help me?,['https://api.example.com/endpoint'],['connection refused'],"['API', 'bug fix']"
+Healthcare,check_disease_risk,My family history includes heart disease. What is my risk of developing heart disease?,[],['heart disease'],"['family history', 'disease risk']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,My social security number is 123-45-6789. I have an account at Bank of America. What is my current balance?,['123-45-6789'],['Bank of America'],['current balance']
+Software Engineering,debug_code,My name is Jane Smith. I am using Python 3.9 and get an error when trying to import the pandas library. Can you help me?,['Jane Smith'],['pandas library'],"['Python 3.9', 'import error']"
+Healthcare,check_disease_risk,"I am 35 years old, have high blood pressure, and my family has a history of heart disease. What is my risk of having a heart attack?",['35 years old'],"['high blood pressure', 'heart disease']",['heart attack risk']
+Finance,apply_for_loan,My address is 123 Main St. I have a credit score of 750 and want to apply for a mortgage. What are my chances of getting approved?,['123 Main St'],['credit score of 750'],['mortgage application']
+Software Engineering,optimize_code,I am using Java 11 and have a loop that is taking too long to execute. Can you help me optimize it?,[],['Java 11'],['loop optimization']
+Healthcare,check_medication_side_effects,I am taking Lipitor and have been experiencing muscle pain. Is this a common side effect?,[],['Lipitor'],"['muscle pain', 'side effects']"
+Finance,check_investment_portfolio,My investment portfolio includes stocks in Apple and Google. What is the current value of my portfolio?,[],"['Apple', 'Google']","['investment portfolio', 'current value']"
+Software Engineering,fix_bug,I am getting a null pointer exception when trying to access a variable in my C++ code. Can you help me fix it?,[],['null pointer exception'],"['C++ code', 'variable access']"
+Healthcare,check_vaccination_schedule,My child is 2 years old and has not received the MMR vaccine. What is the recommended vaccination schedule?,['2 years old'],['MMR vaccine'],['vaccination schedule']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"I am Emily, my SSN is 123-45-6789. What is my current balance in my savings account?","['Emily', '123-45-6789']",['savings account'],['current balance']
+Software Engineering,debug_code,"My name is David and I am working on a project using Python 3.8. I have an issue with my API endpoint /users/123, it returns a 500 error.",['David'],"['/users/123', 'Python 3.8']","['API endpoint', '500 error']"
+Healthcare,check_symptoms,I am 35 years old and have been experiencing headaches. Can I have COVID-19?,['35 years old'],['COVID-19'],['headaches']
+Finance,apply_for_loan,"My address is 123 Main St. I want to apply for a mortgage loan of $200,000.",['123 Main St'],"['$200,000', 'mortgage loan']",['apply for loan']
+Software Engineering,fix_bug,"The bug is in the login function of our application, specifically in the line where we hash the password using SHA-256.",[],"['login function', 'SHA-256']","['bug', 'application']"
+Healthcare,check_treatment,I have diabetes and take Metformin. What are the possible side effects of this medication?,[],"['diabetes', 'Metformin']","['side effects', 'medication']"
+Finance,check_credit_score,"My name is Sarah and I have a credit card with a limit of $5,000. What is my current credit score?",['Sarah'],"['$5,000', 'credit card']",['credit score']
+Software Engineering,improve_performance,Our application uses a MySQL database and is built using Java 11. How can we improve the performance of our application?,[],"['MySQL database', 'Java 11']","['application', 'performance']"
+Healthcare,check_vaccination,I am 60 years old and have not received the flu vaccine this year. Should I get vaccinated?,['60 years old'],['flu vaccine'],['vaccination']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"Hi, my SSN is 123-45-6789 and my name is Jane Smith. What is my current account balance?","['Jane Smith', '123-45-6789']",['current account balance'],[]
+Software Engineering,fix_api_error,My API endpoint at https://example.com/api/endpoint is returning a 500 error. My name is Bob and I am using Python.,['Bob'],"['https://example.com/api/endpoint', '500 error']",['Python']
+Healthcare,check_symptom_severity,I am a 35-year-old male with a fever of 102 degrees. Should I go to the hospital?,['35-year-old male'],"['fever', '102 degrees']",['hospital']
+Finance,transfer_funds,Transfer $1000 from my account 1234 to account 5678. My name is Alice.,['Alice'],"['$1000', 'account 1234', 'account 5678']",['transfer funds']
+Software Engineering,debug_code,My code is throwing a NullPointerException at line 10. I am using Java.,[],"['NullPointerException', 'line 10']",['Java']
+Healthcare,check_medication_side_effects,I am taking medication for diabetes. What are the possible side effects?,[],['diabetes'],['medication side effects']
+Finance,check_credit_score,My SSN is 987-65-4321. What is my current credit score?,['987-65-4321'],['credit score'],[]
+Software Engineering,optimize_performance,My application is running slow. I am using a MySQL database.,[],[],"['MySQL database', 'application performance']"
+Healthcare,check_treatment_options,I have been diagnosed with cancer. What are my treatment options?,[],['cancer'],['treatment options']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"I am Emily, my social security number is 123-45-6789. What is my current account balance?","['Emily', '123-45-6789']",['account balance'],['current account']
+Software Engineering,debug_code_issue,"My name is David, I am trying to connect to the GitHub API. I have a token but keep getting a 401 error.",['David'],"['GitHub API', '401 error']","['token', 'connection issue']"
+Healthcare,schedule_appointment,"I am Jane Smith, my date of birth is 01/01/1990. I need to schedule an appointment with Dr. Lee.","['Jane Smith', '01/01/1990']",['Dr. Lee'],['schedule appointment']
+Finance,apply_for_loan,"My name is Michael, my address is 123 Main St. I want to apply for a $10,000 loan.","['Michael', '123 Main St']","['$10,000']",['loan application']
+Software Engineering,optimize_database_query,I am working on a project with a PostgreSQL database. My query is taking too long to execute.,[],['PostgreSQL database'],['query optimization']
+Healthcare,check_insurance_coverage,"My name is Sarah, my policy number is 123456. Is my MRI covered?","['Sarah', '123456']",['MRI'],['insurance coverage']
+Finance,transfer_funds,"I am Tom, my account number is 1234567890. I want to transfer $500 to my savings account.","['Tom', '1234567890']",['$500'],"['transfer funds', 'savings account']"
+Software Engineering,resolve_compilation_error,"I am Rachel, I am trying to compile my Java project but keep getting a NullPointerException.",['Rachel'],['NullPointerException'],"['Java project', 'compilation error']"
+Healthcare,check_vaccination_status,"My name is Kevin, my date of birth is 06/15/1995. What vaccinations do I need?","['Kevin', '06/15/1995']",['vaccinations'],['vaccination status']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"Hi, my SSN is 123-45-6789 and my account number is 9876. What is my current balance?",['123-45-6789'],['9876'],['current balance']
+Software Engineering,fix_code_error,"My name is Emily and I am using Python 3.9. I have a bug in my code at line 10, column 5. Can you help me?",['Emily'],"['Python 3.9', 'line 10, column 5']",['bug in my code']
+Healthcare,diagnose_symptoms,My address is 123 Main St and I have been experiencing headaches and fatigue. What could be wrong with me?,['123 Main St'],"['headaches', 'fatigue']",['what could be wrong with me']
+Finance,apply_for_loan,"My name is Michael and my annual income is $50,000. I want to apply for a mortgage. What are the requirements?",['Michael'],"['$50,000']","['apply for a mortgage', 'requirements']"
+Software Engineering,optimize_code_performance,I am using Java 11 and my code is running slowly. Can you help me optimize it?,[],['Java 11'],['optimize code performance']
+Healthcare,check_insurance_coverage,My insurance provider is Blue Cross and I have a policy number of 12345. Am I covered for a knee replacement?,[],"['Blue Cross', '12345', 'knee replacement']",['insurance coverage']
+Finance,transfer_funds,My account number is 1111 and I want to transfer $100 to account 2222. How do I do it?,[],"['1111', '2222', '$100']",['transfer funds']
+Software Engineering,implement_api_endpoint,I am using Node.js and I want to implement a REST API endpoint to retrieve user data. Can you provide an example?,[],"['Node.js', 'REST API endpoint']",['retrieve user data']
+Healthcare,schedule_appointment,My doctor's name is Dr. Smith and I want to schedule an appointment for a check-up. What are the available time slots?,['Dr. Smith'],['check-up'],"['schedule appointment', 'available time slots']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"Hi, my SSN is 123-45-6789 and my account number is 9876. What is my current balance?",['123-45-6789'],['9876'],['current balance']
+Software Engineering,debug_code_issue,I am having trouble with my code. My name is Jane Smith and I am trying to use the GitHub API to fetch user data. The endpoint is https://api.github.com/users/octocat.,['Jane Smith'],['https://api.github.com/users/octocat'],"['GitHub API', 'fetch user data']"
+Healthcare,check_symptom_severity,I have a fever of 102 degrees and my name is Michael Johnson. I also have a cough. Should I go to the hospital?,['Michael Johnson'],"['fever of 102 degrees', 'cough']",['hospital']
+Finance,apply_for_loan,"My address is 123 Main St and my income is $50,000. I want to apply for a mortgage loan.",['123 Main St'],"['$50,000']",['mortgage loan']
+Software Engineering,fix_compile_error,I am getting a compile error with my Java code. The error message is 'cannot find symbol' and my name is David Lee.,['David Lee'],['cannot find symbol'],"['Java code', 'compile error']"
+Healthcare,check_insurance_coverage,My name is Emily Chen and I have Blue Cross insurance. Does my plan cover dermatologist visits?,['Emily Chen'],['Blue Cross insurance'],['dermatologist visits']
+Finance,check_credit_score,My Social Security number is 987-65-4321 and I want to check my credit score.,['987-65-4321'],[],['credit score']
+Software Engineering,optimize_algorithm,I am trying to optimize my algorithm for sorting large datasets. My name is Kevin White and I am using Python.,['Kevin White'],['sorting large datasets'],"['Python', 'algorithm']"
+Healthcare,check_vaccination_schedule,My child's name is Sarah Taylor and they are 2 years old. What vaccinations do they need?,['Sarah Taylor'],['2 years old'],['vaccinations']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"I am Emily Smith, my account number is 1234567890, and I want to know my current balance.","['Emily Smith', '1234567890']",[],['current balance']
+Software Engineering,fix_api_error,"My name is David Lee, and I'm getting a 404 error when I call the https://api.example.com/users endpoint.",['David Lee'],['https://api.example.com/users'],['404 error']
+Healthcare,schedule_appointment,"I'm Jane Doe, and I need to schedule an appointment with Dr. Smith for my diabetes check-up.",['Jane Doe'],['diabetes'],"['Dr. Smith', 'check-up']"
+Finance,transfer_funds,"My name is Michael Brown, and I want to transfer $1000 from my account 1234567890 to account 9876543210.",['Michael Brown'],['$1000'],"['transfer funds', 'account 1234567890', 'account 9876543210']"
+Software Engineering,debug_code,"My name is Sophia Patel, and I'm getting a compilation error on line 10 of my Java code.",['Sophia Patel'],[],"['compilation error', 'line 10', 'Java code']"
+Healthcare,check_insurance_coverage,"I'm Olivia Davis, and I have a Blue Cross Blue Shield insurance plan. Does it cover my knee surgery?",['Olivia Davis'],['knee surgery'],['Blue Cross Blue Shield']
+Finance,apply_for_loan,"My name is Ethan Hall, and I want to apply for a $50000 loan with an interest rate of 6%.",['Ethan Hall'],"['$50000', '6%']",['apply for loan']
+Software Engineering,optimize_performance,"My name is Jackson White, and I want to optimize the performance of my Python application.",['Jackson White'],[],"['optimize performance', 'Python application']"
+Healthcare,check_vaccine_availability,"I'm Ava Kim, and I want to know if the COVID-19 vaccine is available at my local pharmacy.",['Ava Kim'],['COVID-19 vaccine'],['local pharmacy']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"Hi, my SSN is 123-45-6789. What is my current account balance?",['123-45-6789'],[],['account balance']
+Software Engineering,fix_code_error,I am trying to use the Google Maps API. My API key is xyz123. Why is my code not working?,['xyz123'],['Google Maps API'],['code not working']
+Healthcare,diagnose_symptoms,My name is Jane Smith. I have been experiencing headaches and fever. What could be the cause?,['Jane Smith'],"['headaches', 'fever']",[]
+Finance,transfer_money,I want to transfer $1000 from my account to my friend's account. My account number is 0123456789.,['0123456789'],['$1000'],['transfer money']
+Software Engineering,optimize_code_performance,I am using the AWS Lambda function. My function name is my-function. How can I improve its performance?,['my-function'],['AWS Lambda'],['performance']
+Healthcare,check_insurance_coverage,My name is Bob Johnson. I have a Blue Cross Blue Shield insurance plan. Am I covered for diabetes treatment?,['Bob Johnson'],['diabetes'],['Blue Cross Blue Shield']
+Finance,check_credit_score,My name is Alice Brown. My SSN is 987-65-4321. What is my current credit score?,"['Alice Brown', '987-65-4321']",[],['credit score']
+Software Engineering,troubleshoot_network_issue,I am experiencing network issues with my Azure Virtual Machine. My VM name is my-vm. Can you help me troubleshoot?,['my-vm'],['Azure Virtual Machine'],['network issues']
+Healthcare,check_medical_history,My name is Mike Davis. I have a history of heart disease. What are the risks of COVID-19 for me?,['Mike Davis'],['heart disease'],['COVID-19']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,My SSN is 123-45-6789. What is my current account balance at Bank of America?,['123-45-6789'],['Bank of America'],['account balance']
+Software Engineering,debug_code,My GitHub username is JaneDoe123. I'm getting a compilation error on line 10 of my Python script using the requests library.,['JaneDoe123'],['requests library'],"['Python script', 'compilation error', 'line 10']"
+Healthcare,book_appointment,My phone number is 555-1234. I need to schedule a doctor's appointment at Mayo Clinic for my diabetes check-up.,['555-1234'],['diabetes'],"['Mayo Clinic', ""doctor's appointment""]"
+Finance,transfer_funds,My bank account number is 0123456789. I want to transfer $1000 to my friend's account at Wells Fargo.,['0123456789'],['$1000'],"['Wells Fargo', 'transfer funds']"
+Software Engineering,optimize_algorithm,My email address is johndoe@example.com. I'm trying to optimize my sorting algorithm in Java using the QuickSort method.,['johndoe@example.com'],['QuickSort'],"['Java', 'sorting algorithm', 'optimization']"
+Healthcare,check_symptoms,My date of birth is 1990-01-01. I have a fever and a cough. Do I have COVID-19?,['1990-01-01'],"['fever', 'cough']",['COVID-19']
+Finance,apply_loan,My address is 123 Main St. I want to apply for a mortgage loan at Citibank for $500000.,['123 Main St'],['$500000'],"['Citibank', 'mortgage loan']"
+Software Engineering,fix_bug,My password is password123. I'm getting a runtime error on line 20 of my C++ code using the STL library.,['password123'],['STL library'],"['C++ code', 'runtime error', 'line 20']"
+Healthcare,check_treatment,My medical record number is MRN12345. I have high blood pressure and take Lisinopril. What are my treatment options?,['MRN12345'],['high blood pressure'],"['Lisinopril', 'treatment options']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"I'm Emily Chen, and my SSN is 123-45-6789. What's the balance of my account ending in 1234?","['Emily Chen', '123-45-6789']",['account ending in 1234'],['account balance']
+Software Engineering,debug_code,"My name is David Lee, and I'm working on a project using the GitHub API. I'm getting a 404 error when trying to access https://api.github.com/users/octocat.",['David Lee'],['https://api.github.com/users/octocat'],"['GitHub API', '404 error']"
+Healthcare,book_appointment,"I'm Jane Smith, and I need to schedule an appointment with Dr. Johnson for my diabetes checkup at 123 Main St.","['Jane Smith', '123 Main St']",['diabetes'],"['Dr. Johnson', 'appointment']"
+Finance,transfer_funds,"My name is Michael Brown, and I want to transfer $1000 from my account 1234 to my friend's account 5678.",['Michael Brown'],"['$1000', 'account 1234', 'account 5678']",['transfer funds']
+Software Engineering,fix_bug,"I'm Sarah Taylor, and I'm experiencing a bug in my Python code using the TensorFlow library. The error message is 'TypeError: unsupported operand type'.",['Sarah Taylor'],['TensorFlow library'],"['Python code', 'TypeError: unsupported operand type']"
+Healthcare,check_insurance_coverage,"My name is Kevin White, and I have a Blue Cross Blue Shield insurance plan. Does it cover my upcoming knee surgery?",['Kevin White'],"['Blue Cross Blue Shield', 'knee surgery']",['insurance coverage']
+Finance,apply_for_loan,"I'm Olivia Martin, and I want to apply for a $5000 loan with an interest rate of 6%. My credit score is 750.",['Olivia Martin'],"['$5000', '6%', '750']",['loan application']
+Software Engineering,optimize_code,"My name is William Davis, and I'm trying to optimize my JavaScript code using the React library. It's currently taking 5 seconds to load.",['William Davis'],['React library'],"['JavaScript code', '5 seconds']"
+Healthcare,check_medical_history,"I'm James Wilson, and I have a history of hypertension. Can I take the medication Lisinopril?",['James Wilson'],"['hypertension', 'Lisinopril']",['medical history']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,transfer_funds,"I, Jane Smith, want to transfer $1000 from my account 1234567890 to my friend's account 0987654321.",['Jane Smith'],"['$1000', '1234567890', '0987654321']",['transfer funds']
+Software Engineering,debug_code,My name is Bob Johnson and I am having trouble with my Python code. I am getting a syntax error on line 10.,['Bob Johnson'],"['Python', 'line 10']",['syntax error']
+Healthcare,book_appointment,I need to schedule an appointment with Dr. Smith for my daughter Emily who has a fever.,['Emily'],['fever'],"['Dr. Smith', 'schedule appointment']"
+Finance,check_account_balance,What is the balance of my account 1111111111?,[],['1111111111'],['account balance']
+Software Engineering,optimize_algorithm,I am trying to optimize my sorting algorithm in Java. It is currently using bubble sort.,[],"['Java', 'bubble sort']","['optimize algorithm', 'sorting']"
+Healthcare,check_insurance_coverage,"Does my insurance plan, Blue Cross Blue Shield, cover treatment for diabetes?",[],"['diabetes', 'Blue Cross Blue Shield']","['insurance coverage', 'treatment']"
+Finance,apply_for_loan,"I, Michael Brown, want to apply for a mortgage loan of $200000.",['Michael Brown'],['$200000'],"['apply for loan', 'mortgage']"
+Software Engineering,fix_bug,There is a bug in my C++ code that is causing a segmentation fault.,[],"['C++', 'segmentation fault']",['fix bug']
+Healthcare,check_medical_history,What are the risks of surgery for someone with a history of heart disease?,[],['heart disease'],"['surgery risks', 'medical history']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"I am Emily, my social security number is 123-45-6789, and I have an account at Bank of America. What is my current balance?","['Emily', '123-45-6789']",['Bank of America'],['current balance']
+Software Engineering,debug_code,"My name is David, and I am trying to debug my Python code using the requests library. I am getting a 404 error when trying to access the https://api.example.com/users endpoint.",['David'],"['requests library', 'https://api.example.com/users']","['Python code', '404 error']"
+Healthcare,check_symptom,"My patient, Jane Smith, has a fever and is experiencing headache. What could be the cause?",['Jane Smith'],"['fever', 'headache']",['cause']
+Finance,check_investment,I have $1000 to invest in the stock market. What are the best options for a beginner like me?,[],['$1000'],"['stock market', 'best options', 'beginner']"
+Software Engineering,improve_code_performance,I am using the pandas library to process large datasets in Python. How can I optimize the performance of my code?,[],['pandas library'],"['Python', 'large datasets', 'optimize performance']"
+Healthcare,check_medical_history,My medical history includes diabetes and high blood pressure. Can I take a certain medication?,[],"['diabetes', 'high blood pressure']","['medical history', 'medication']"
+Finance,check_loan_options,I need a loan of $5000 to buy a car. What are my options?,[],['$5000'],"['loan', 'car', 'options']"
+Software Engineering,fix_compile_error,I am getting a compile error when trying to compile my Java code using the Maven build tool. What could be the cause?,[],['Maven build tool'],"['Java code', 'compile error', 'cause']"
+Healthcare,check_treatment_option,My doctor has diagnosed me with a certain disease. What are the treatment options available?,[],['certain disease'],"['treatment options', 'doctor', 'diagnosed']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"I'm Emily, my SSN is 123-45-6789, and I have an account at Bank of America. What's my current balance?","['Emily', '123-45-6789']",['Bank of America'],['current balance']
+Software Engineering,debug_code_issue,"My name is David Lee, and I'm using Python 3.9. I'm getting an error when trying to connect to the MySQL database using the mysql-connector-python library. Can you help?",['David Lee'],"['Python 3.9', 'mysql-connector-python']","['MySQL database', 'error', 'connect']"
+Healthcare,schedule_appointment,"My name is Sarah, and I have a history of diabetes. I need to schedule an appointment with Dr. Smith at 123 Main St. Can I get an appointment for next Thursday?","['Sarah', '123 Main St']","['diabetes', 'Dr. Smith']","['schedule appointment', 'next Thursday']"
+Finance,apply_for_loan,"I'm Michael, my address is 456 Elm St, and I have a credit score of 750. Can I apply for a $50,000 loan with a 5-year term?","['Michael', '456 Elm St']",['credit score 750'],"['$50,000 loan', '5-year term']"
+Software Engineering,optimize_algorithm,"My name is Rachel, and I'm using the scikit-learn library in Python. I'm trying to optimize a machine learning model for image classification. Can you help me improve the accuracy?",['Rachel'],"['scikit-learn', 'machine learning model']","['image classification', 'accuracy']"
+Healthcare,check_insurance_coverage,"I'm Kevin, and I have Blue Cross Blue Shield insurance. Does my plan cover the cost of a COVID-19 test?",['Kevin'],['Blue Cross Blue Shield'],"['COVID-19 test', 'insurance coverage']"
+Finance,transfer_funds,"My name is Olivia, and I have an account at Wells Fargo. I want to transfer $1,000 to my friend's account at Chase Bank. Can I do that online?",['Olivia'],"['Wells Fargo', 'Chase Bank']","['$1,000', 'transfer funds', 'online']"
+Software Engineering,fix_bug,"My name is William, and I'm using the React framework. I'm getting a bug when trying to render a component. Can you help me debug the issue?",['William'],['React framework'],"['render component', 'bug', 'debug']"
+Healthcare,check_medical_history,"I'm James, and I have a history of heart disease. Can I get a copy of my medical records from my doctor's office at 789 Oak St?","['James', '789 Oak St']",['heart disease'],"['medical records', ""doctor's office""]"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,transfer_funds,"Hi, my name is Jane Smith, and my account number is 1234567890. I want to transfer $1000 to my friend's account, which is 9876543210.",['Jane Smith'],"['1234567890', '9876543210', '$1000']",['transfer funds']
+Software Engineering,debug_code,"I'm having trouble with my Python script. My name is Bob, and I'm trying to use the requests library to fetch data from the GitHub API. My code is: https://github.com/bob/myrepo/blob/main/script.py",['Bob'],['https://github.com/bob/myrepo/blob/main/script.py'],"['Python script', 'requests library', 'GitHub API']"
+Healthcare,book_appointment,"Hello, my name is Emily, and I have a Medicaid ID of 1111111111. I need to book an appointment with Dr. Smith for my diabetes checkup.",['Emily'],"['Medicaid ID 1111111111', 'diabetes']","['book appointment', 'Dr. Smith']"
+Finance,check_account_balance,"Hi, I'm David, and my social security number is 123-45-6789. Can you tell me my current account balance?",['David'],['123-45-6789'],['account balance']
+Software Engineering,fix_error,"I'm getting an error with my Java code. My name is Michael, and I'm trying to connect to a PostgreSQL database using the JDBC driver. The error message is: org.postgresql.util.PSQLException: Connection refused.",['Michael'],['org.postgresql.util.PSQLException: Connection refused'],"['Java code', 'PostgreSQL database', 'JDBC driver']"
+Healthcare,get_medication_info,"My name is Sophia, and I'm taking a medication called Lisinopril. Can you tell me what it's used for?",['Sophia'],['Lisinopril'],['medication info']
+Finance,apply_for_loan,"Hi, my name is Olivia, and I have a credit score of 750. I want to apply for a car loan of $20000.",['Olivia'],"['credit score 750', '$20000']","['apply for loan', 'car loan']"
+Software Engineering,optimize_performance,"I'm having trouble with my Node.js application. My name is William, and I'm trying to optimize the performance of my MongoDB database. The database URL is: mongodb://username:password@localhost:27017/",['William'],['mongodb://username:password@localhost:27017/'],"['Node.js application', 'MongoDB database', 'optimize performance']"
+Healthcare,get_insurance_info,"My name is Ava, and I have a health insurance plan with Blue Cross Blue Shield. Can you tell me what's covered under my plan?",['Ava'],['Blue Cross Blue Shield'],"['health insurance plan', 'coverage info']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,My social security number is 123456789 and I have an account at Bank of America. What is my current balance?,['123456789'],[],['Bank of America']
+Software Engineering,debug_code,"I am working on a project with my colleague, Jane Smith, and we are using Python. We are getting an error on line 10 of our code. Can you help us debug it?",['Jane Smith'],[],"['Python', 'line 10']"
+Healthcare,book_appointment,My name is Emily and I have a concern about my diabetes. I would like to book an appointment with Dr. Lee at 123 Main St.,"['Emily', '123 Main St']",['diabetes'],['Dr. Lee']
+Finance,transfer_funds,I would like to transfer $1000 from my account at Wells Fargo to my account at Chase Bank. My account number at Wells Fargo is 1234567890.,['1234567890'],['$1000'],"['Wells Fargo', 'Chase Bank']"
+Software Engineering,optimize_code,I am working on a project and I need to optimize my code for better performance. I am using Java and I have a loop that is taking too long to execute.,[],[],"['Java', 'loop']"
+Healthcare,check_insurance_coverage,My name is Michael and I have a policy with Blue Cross Blue Shield. I would like to know if my policy covers a specific treatment for my condition.,['Michael'],['condition'],['Blue Cross Blue Shield']
+Finance,check_credit_score,My social security number is 987654321 and I would like to know my current credit score.,['987654321'],[],[]
+Software Engineering,fix_bug,I am working on a project and I have encountered a bug. I am using C++ and I have a error on line 20 of my code.,[],[],"['C++', 'line 20']"
+Healthcare,check_medical_history,My name is David and I have a medical history of heart disease. I would like to know if I am at risk for any other conditions.,['David'],['heart disease'],[]
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,I am Jane Smith with social security number 123-45-6789. What is my current account balance?,"['Jane Smith', '123-45-6789']",[],['current account balance']
+Software Engineering,fix_code_error,I am trying to compile my code but I get an error on line 10. My code is written in Python and uses the TensorFlow library.,[],['TensorFlow'],"['compile code', 'error on line 10', 'Python']"
+Healthcare,schedule_appointment,My name is Emily and I need to schedule an appointment with Dr. Smith. I have a fever and a headache.,"['Emily', 'Dr. Smith']","['fever', 'headache']",['schedule appointment']
+Finance,transfer_money,I want to transfer $1000 from my account to my friend's account. My account number is 1234567890 and my friend's account number is 0987654321.,"['1234567890', '0987654321']",['$1000'],['transfer money']
+Software Engineering,optimize_code,I am trying to optimize my code for better performance. I am using the Apache Spark library and my code is written in Java.,[],['Apache Spark'],"['optimize code', 'better performance', 'Java']"
+Healthcare,check_insurance_coverage,My name is David and I have insurance through Blue Cross Blue Shield. Does my insurance cover the cost of a knee replacement surgery?,"['David', 'Blue Cross Blue Shield']",['knee replacement surgery'],['insurance coverage']
+Finance,check_credit_score,I am Rachel and I want to check my credit score. My social security number is 987-65-4321.,"['Rachel', '987-65-4321']",[],['credit score']
+Software Engineering,debug_code,I am getting an error when I try to run my code. I am using the React library and my code is written in JavaScript.,[],['React'],"['debug code', 'JavaScript']"
+Healthcare,check_medical_history,My name is Michael and I have a history of diabetes. Can I take a certain medication?,['Michael'],['diabetes'],['medication']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,I am Jane Smith with SSN 123-45-6789. What is my current account balance in my savings account?,"['Jane Smith', '123-45-6789']",['savings account'],['current account balance']
+Software Engineering,debug_code_issue,My name is Emily and I am trying to debug my Python code. I am getting an error on line 10 of my script.,['Emily'],"['Python code', 'line 10']","['error', 'script']"
+Healthcare,check_disease_risk,I am 35 years old and have a family history of diabetes. What are my chances of getting diabetes?,['35 years old'],"['diabetes', 'family history']",['chances of getting diabetes']
+Finance,apply_for_loan,"My name is Michael and I want to apply for a $10,000 loan. What are the interest rates?",['Michael'],"['$10,000 loan']",['interest rates']
+Software Engineering,improve_code_performance,I am using a MySQL database and my query is taking too long to execute. How can I optimize it?,[],['MySQL database'],"['query', 'optimize']"
+Healthcare,check_medication_side_effects,I am taking Lipitor for high cholesterol. What are the possible side effects?,[],"['Lipitor', 'high cholesterol']",['side effects']
+Finance,check_investment_returns,"I invested $5,000 in a mutual fund. What are the returns on my investment?","['$5,000']",['mutual fund'],['returns on investment']
+Software Engineering,fix_bug,I am getting a null pointer exception in my Java code. How can I fix it?,[],"['Java code', 'null pointer exception']",['fix']
+Healthcare,check_treatment_options,I have been diagnosed with cancer. What are my treatment options?,[],['cancer'],['treatment options']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"Hi, my SSN is 123-45-6789. What is my current balance in my savings account?",['123-45-6789'],['savings account'],['current balance']
+Software Engineering,fix_bug,"My name is Emily, and I am trying to debug my Python code. I have an error on line 10 in my script.py file.",['Emily'],"['Python', 'script.py', 'line 10']","['debug', 'error']"
+Healthcare,diagnose_symptom,"I am Jane Smith, and I have been experiencing severe headaches. Can you help me identify the cause?",['Jane Smith'],['severe headaches'],['identify the cause']
+Finance,transfer_funds,My address is 123 Main St. I want to transfer $100 from my checking account to my savings account.,['123 Main St'],"['$100', 'checking account', 'savings account']",['transfer funds']
+Software Engineering,optimize_code,My email is john@example.com. I am trying to optimize my Java code for better performance. Can you help?,['john@example.com'],['Java'],"['optimize code', 'better performance']"
+Healthcare,check_insurance_coverage,"I am Michael Brown, and I have diabetes. Is my medication covered by my insurance?",['Michael Brown'],"['diabetes', 'medication']",['insurance coverage']
+Finance,apply_loan,"My phone number is 555-1234. I want to apply for a car loan of $20,000.",['555-1234'],"['$20,000', 'car loan']",['apply for loan']
+Software Engineering,integrate_api,My company is ABC Inc. I am trying to integrate the PayPal API into my e-commerce website.,['ABC Inc'],"['PayPal API', 'e-commerce website']",['integrate API']
+Healthcare,schedule_appointment,My date of birth is 1990-01-01. I need to schedule an appointment with my doctor for a check-up.,['1990-01-01'],"['check-up', 'doctor']",['schedule appointment']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,I am Jane Smith with account number 123456789. What is my current balance?,['Jane Smith'],['123456789'],['current balance']
+Software Engineering,debug_code,My name is Bob Johnson and I am using Python 3.9. I have a bug in my code that is causing a TypeError. Can you help me?,['Bob Johnson'],"['Python 3.9', 'TypeError']",['bug in my code']
+Healthcare,check_disease_symptoms,My SSN is 123-45-6789 and I have been experiencing symptoms of diabetes. What are the common symptoms?,['123-45-6789'],['diabetes'],['common symptoms']
+Finance,apply_for_loan,"I live at 123 Main St and my income is $50,000 per year. Can I apply for a mortgage?",['123 Main St'],"['$50,000 per year']",['apply for a mortgage']
+Software Engineering,optimize_algorithm,I am working on a project using Java 11 and I need to optimize my sorting algorithm. Can you provide some tips?,[],"['Java 11', 'sorting algorithm']",['optimize my algorithm']
+Healthcare,check_medication_side_effects,My name is Alice Williams and I am taking medication for high blood pressure. What are the common side effects?,['Alice Williams'],['high blood pressure'],['common side effects']
+Finance,check_credit_score,"I have a credit card with a balance of $2,000 and my name is Michael Davis. What is my current credit score?",['Michael Davis'],"['$2,000']",['current credit score']
+Software Engineering,debug_database_query,I am using MySQL and I have a query that is causing a syntax error. Can you help me debug it?,[],"['MySQL', 'syntax error']",['debug my query']
+Healthcare,check_treatment_options,My medical record number is 12345 and I have been diagnosed with cancer. What are my treatment options?,['12345'],['cancer'],['treatment options']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"Hello, my SSN is 123-45-6789 and I want to know my account balance for my savings account at Bank of America.",['123-45-6789'],"['Bank of America', 'savings account']",['account balance']
+Software Engineering,fix_bug,I am working on a project and my name is Emily. I am having trouble with a bug in my Python code using the Django framework. The error message is 'cannot import module'.,['Emily'],"['Django', 'Python']","['bug', 'cannot import module', 'error message']"
+Healthcare,diagnose_symptoms,My address is 123 Main St. I have been experiencing symptoms of fever and headache. Can you diagnose me?,['123 Main St'],"['fever', 'headache']",['diagnose']
+Finance,apply_for_loan,"I am Jane Smith and my annual income is $50,000. I want to apply for a mortgage loan at Wells Fargo.",['Jane Smith'],"['Wells Fargo', '$50,000']","['mortgage loan', 'apply']"
+Software Engineering,optimize_code,My name is David Lee and I am working on a project using the React framework. I want to optimize my code to improve performance.,['David Lee'],['React'],"['optimize', 'performance', 'code']"
+Healthcare,check_insurance_coverage,I have a Blue Cross Blue Shield insurance plan and take medication for diabetes. Can I get a check-up at the hospital?,[],"['diabetes', 'Blue Cross Blue Shield']","['check-up', 'hospital', 'insurance plan']"
+Finance,transfer_funds,My account number is 1234567890 and I want to transfer $100 to my friend's account at Chase Bank.,['1234567890'],"['Chase Bank', '$100']",['transfer funds']
+Software Engineering,implement_api,I am working on a project using the Node.js framework and want to implement a REST API to interact with the database.,[],"['Node.js', 'REST API']","['database', 'implement']"
+Healthcare,schedule_appointment,My phone number is 555-555-5555 and I want to schedule an appointment with Dr. Smith for a check-up.,['555-555-5555'],['Dr. Smith'],"['schedule appointment', 'check-up']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,transfer_money,"I, Emily Chen, want to transfer $1000 from my account 1234567890 to my friend's account 9876543210.",['Emily Chen'],['$1000'],"['transfer', 'account']"
+Software Engineering,fix_bug,The error message is 'null pointer exception' when I use the API endpoint /users/123. My name is David Lee and I am using Java.,['David Lee'],"['null pointer exception', '/users/123']","['Java', 'error message']"
+Healthcare,book_appointment,My name is Sarah Taylor and I have diabetes. I want to book an appointment with Dr. Smith at 123 Main St.,"['Sarah Taylor', '123 Main St']",['diabetes'],"['Dr. Smith', 'book appointment']"
+Finance,check_account_balance,"I, Michael Brown, want to check my account balance for account 1111111111.",['Michael Brown'],['account 1111111111'],['check account balance']
+Software Engineering,optimize_code,The code is running slow when I use the function optimize() in Python. My name is Kevin White and I am using a MacBook.,"['Kevin White', 'MacBook']",['optimize()'],"['Python', 'code optimization']"
+Healthcare,get_medical_advice,My name is Olivia Martin and I have a fever. What are the symptoms of COVID-19?,['Olivia Martin'],"['fever', 'COVID-19']",['symptoms']
+Finance,apply_for_loan,"I, William Davis, want to apply for a loan of $5000. My SSN is 123-45-6789.","['William Davis', '123-45-6789']",['$5000'],['apply for loan']
+Software Engineering,debug_code,The error message is 'syntax error' when I use the function debug() in JavaScript. My name is Jennifer Hall and I am using Visual Studio.,"['Jennifer Hall', 'Visual Studio']","['syntax error', 'debug()']","['JavaScript', 'error message']"
+Healthcare,check_insurance_coverage,My name is Matthew Garcia and I have health insurance with Blue Cross. Does my plan cover chiropractic care?,['Matthew Garcia'],"['health insurance', 'Blue Cross', 'chiropractic care']",['insurance coverage']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,I am Jane Smith with account number 1234567890. What is my current balance?,['Jane Smith'],['1234567890'],['current balance']
+Software Engineering,fix_api_error,My name is Bob Johnson. I am getting a 404 error when calling the https://api.example.com/users endpoint. Can you help?,['Bob Johnson'],['https://api.example.com/users'],['404 error']
+Healthcare,schedule_appointment,I need to schedule an appointment with Dr. Smith for my diabetes checkup. My phone number is 555-1234.,['555-1234'],['diabetes'],"['Dr. Smith', 'appointment']"
+Finance,apply_for_loan,My name is Alice Brown and I have a social security number of 9876543210. I want to apply for a $10000 loan.,['Alice Brown'],"['9876543210', '$10000']",['loan application']
+Software Engineering,troubleshoot_code_issue,I am getting a compilation error in my Python code when using the numpy library. Can you help me fix it?,[],['numpy library'],"['Python code', 'compilation error']"
+Healthcare,check_insurance_coverage,My name is Mike Davis and I have a policy number of 123456. Is my knee surgery covered?,['Mike Davis'],"['knee surgery', '123456']",['insurance coverage']
+Finance,transfer_funds,I want to transfer $500 from my account number 1234567890 to my friend's account number 9876543210.,[],"['1234567890', '9876543210', '$500']",['fund transfer']
+Software Engineering,optimize_database_query,I am using MySQL and my query is taking too long to execute. Can you help me optimize it?,[],['MySQL'],['query optimization']
+Healthcare,check_medical_history,My name is Emily Chen and I have a medical history of hypertension. What are the risks of COVID-19 for me?,['Emily Chen'],['hypertension'],['COVID-19 risks']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,My social security number is 123-45-6789. I have an account at Bank of America. What is my current balance?,['123-45-6789'],['Bank of America'],['current balance']
+Software Engineering,fix_api_error,My name is Jane Smith. I am using the GitHub API to fetch user data. I am getting a 401 error. Can you help me?,['Jane Smith'],['GitHub API'],"['401 error', 'fetch user data']"
+Healthcare,check_insurance_coverage,I have diabetes and my address is 123 Main St. I have insurance through Blue Cross Blue Shield. Am I covered for a doctor visit?,['123 Main St'],"['diabetes', 'Blue Cross Blue Shield']",['doctor visit']
+Finance,transfer_funds,My account number is 0123456789. I want to transfer $1000 to my friend's account at Wells Fargo. Can you help me?,['0123456789'],"['Wells Fargo', '$1000']",['transfer funds']
+Software Engineering,debug_code,My email is john.doe@example.com. I am using Python to build a web application. I am getting a syntax error on line 10. Can you help me?,['john.doe@example.com'],"['Python', 'line 10']","['syntax error', 'web application']"
+Healthcare,check_treatment_options,I have a history of heart disease and my phone number is 555-555-5555. I am experiencing symptoms of a heart attack. What are my treatment options?,['555-555-5555'],['heart disease'],"['heart attack', 'treatment options']"
+Finance,check_investment_performance,My investment portfolio is with Fidelity. I have invested in stocks and bonds. Can you tell me how my investments are performing?,[],"['Fidelity', 'stocks', 'bonds']",['investment performance']
+Software Engineering,improve_application_performance,My company is using the AWS API to host our web application. We are experiencing slow load times. Can you help us optimize our application?,[],['AWS API'],"['slow load times', 'web application', 'optimize']"
+Healthcare,check_medical_history,I have a medical history of high blood pressure and my date of birth is 1990-01-01. I am experiencing symptoms of a cold. Can you help me determine the best course of treatment?,['1990-01-01'],['high blood pressure'],"['cold', 'treatment']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,transfer_funds,I am Jane Smith with account number 1234567890. I want to transfer $1000 to my friend's account 0987654321.,['Jane Smith'],"['$1000', '0987654321']","['transfer funds', 'account number 1234567890']"
+Software Engineering,fix_bug,My name is David Lee and I am working on a project with GitHub repository https://github.com/user/project. I am getting an error with API endpoint /users.,['David Lee'],['/users'],"['GitHub repository https://github.com/user/project', 'error']"
+Healthcare,schedule_appointment,I am Emily Chen and I need to schedule an appointment with Dr. Smith for my diabetes check-up at 123 Main St.,"['Emily Chen', '123 Main St']",['diabetes'],"['schedule appointment', 'Dr. Smith']"
+Finance,check_account_balance,My name is Michael Brown and my account number is 1111111111. What is my current balance?,['Michael Brown'],['1111111111'],['check account balance']
+Software Engineering,optimize_code,I am working on a project with repository https://github.com/user/project and I want to optimize the code for the /login endpoint.,[],['/login'],"['optimize code', 'GitHub repository https://github.com/user/project']"
+Healthcare,get_medical_advice,I have high blood pressure and I am taking medication. Can I eat foods high in sodium?,[],['high blood pressure'],"['medication', 'foods high in sodium']"
+Finance,apply_for_loan,My name is Sophia Patel and I have an annual income of $50000. I want to apply for a loan of $20000.,['Sophia Patel'],"['$20000', '$50000']",['apply for loan']
+Software Engineering,debug_code,I am getting an error with my code at line 100 in the file https://github.com/user/project/blob/main/file.py.,[],"['line 100', 'https://github.com/user/project/blob/main/file.py']","['debug code', 'error']"
+Healthcare,get_insurance_coverage,My name is Olivia Lee and I have insurance policy number 123456789. What is my coverage for dental care?,['Olivia Lee'],['insurance policy number 123456789'],"['get insurance coverage', 'dental care']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,My social security number is 123-45-6789. I have an account at Bank of America. What is my current balance?,['123-45-6789'],[],"['Bank of America', 'account balance']"
+Software Engineering,troubleshoot_api_issue,I am having issues with the GitHub API endpoint https://api.github.com/users/octocat. My name is Jane Smith.,['Jane Smith'],['https://api.github.com/users/octocat'],['GitHub API']
+Healthcare,check_disease_risk,My name is Emily Johnson. I have a family history of diabetes. What is my risk of developing heart disease?,['Emily Johnson'],['diabetes'],"['family history', 'heart disease']"
+Finance,apply_for_loan,"My address is 123 Main St. I want to apply for a loan of $10,000 from Wells Fargo.",['123 Main St'],"['$10,000']","['Wells Fargo', 'loan application']"
+Software Engineering,optimize_code_performance,I am using Python 3.9 and the NumPy library. My name is Michael Davis. How can I improve the performance of my code?,['Michael Davis'],"['Python 3.9', 'NumPy']","['code performance', 'optimization']"
+Healthcare,check_medication_side_effects,My name is Sarah Lee. I am taking medication for high blood pressure. What are the potential side effects of my medication?,['Sarah Lee'],['high blood pressure'],['medication side effects']
+Finance,check_investment_portfolio,My social security number is 987-65-4321. I have invested in the stock market through Fidelity. What is the current value of my portfolio?,['987-65-4321'],[],"['Fidelity', 'investment portfolio']"
+Software Engineering,troubleshoot_database_issue,I am having issues with my MySQL database. My name is David Kim. What could be causing the error?,['David Kim'],['MySQL'],"['database error', 'troubleshooting']"
+Healthcare,check_insurance_coverage,My name is Kevin White. I have insurance through Blue Cross Blue Shield. What is covered under my plan?,['Kevin White'],[],"['Blue Cross Blue Shield', 'insurance coverage']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,transfer_money,I want to send $1000 from my account 1234567890 to my friend's account 9876543210.,"['1234567890', '9876543210']",['$1000'],"['send money', 'friend']"
+Software Engineering,debug_code,My name is Jane Smith and I'm having trouble with my Python script. The error message is 'SyntaxError: invalid syntax' on line 10.,['Jane Smith'],"['Python', 'SyntaxError: invalid syntax', 'line 10']","['script', 'error message', 'trouble']"
+Healthcare,check_symptoms,My SSN is 123-45-6789 and I've been experiencing fever and headache for 3 days.,['123-45-6789'],"['fever', 'headache']","['3 days', 'experiencing symptoms']"
+Finance,check_account_balance,I live at 123 Main St and I want to know my current account balance.,['123 Main St'],[],['current account balance']
+Software Engineering,learn_new_technology,My email is john.doe@example.com and I want to learn more about TensorFlow and its applications.,['john.doe@example.com'],['TensorFlow'],"['learn more', 'applications']"
+Healthcare,check_insurance_coverage,I have diabetes and I want to know if my insurance plan covers the cost of insulin.,[],"['diabetes', 'insulin']","['insurance plan', 'covers the cost']"
+Finance,apply_for_loan,My name is Jane Doe and I want to apply for a $5000 loan with an interest rate of 6%.,['Jane Doe'],"['$5000', '6%']",['apply for loan']
+Software Engineering,fix_bug,I'm working on a project and I'm getting a '404 Not Found' error when I try to access the /users endpoint.,[],"['404 Not Found', '/users endpoint']","['project', 'getting error']"
+Healthcare,check_treatment_options,My medical record number is 12345 and I have been diagnosed with hypertension. What are my treatment options?,['12345'],['hypertension'],"['treatment options', 'diagnosed']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,I am Jane Smith with SSN 123-45-6789. What is my current account balance?,"['Jane Smith', '123-45-6789']",[],['account balance']
+Software Engineering,debug_code_issue,My name is Emily and I am using Python 3.9. I have an issue with my API endpoint /users. Can you help me?,['Emily'],"['/users', 'Python 3.9']",['API endpoint']
+Healthcare,check_insurance_coverage,My name is Michael and I have diabetes. Does my insurance cover the cost of insulin?,['Michael'],['diabetes'],"['insurance coverage', 'insulin']"
+Finance,transfer_funds,I want to transfer $1000 from my account 1234 to account 5678.,[],"['$1000', '1234', '5678']",['transfer funds']
+Software Engineering,improve_code_performance,My code is written in Java and uses the Spring framework. How can I optimize it for better performance?,[],"['Java', 'Spring framework']","['code performance', 'optimization']"
+Healthcare,check_disease_risk,My family has a history of heart disease. What are my risks of developing it?,[],['heart disease'],"['family history', 'disease risk']"
+Finance,check_investment_options,I have $5000 to invest. What are my options for a high-yield savings account?,[],['$5000'],"['investment options', 'high-yield savings account']"
+Software Engineering,fix_compile_error,My code has a compile error on line 10. Can you help me fix it?,[],['line 10'],['compile error']
+Healthcare,check_treatment_options,I have been diagnosed with cancer. What are my treatment options?,[],['cancer'],['treatment options']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"I am Emily, my SSN is 123-45-6789. What is my current balance in my savings account?","['Emily', '123-45-6789']",['savings account'],['current balance']
+Software Engineering,troubleshoot_api_error,"My name is David, I am trying to use the GitHub API to fetch user data. I get a 401 error when I call https://api.github.com/users.",['David'],"['GitHub API', 'https://api.github.com/users']","['401 error', 'fetch user data']"
+Healthcare,check_insurance_coverage,I have diabetes and my insurance provider is Blue Cross. Does my plan cover the cost of insulin?,[],"['diabetes', 'Blue Cross']","['insulin', 'plan coverage']"
+Finance,transfer_funds,"My account number is 1234567890. I want to transfer $1000 to my friend's account, which is 9876543210.","['1234567890', '9876543210']",['$1000'],['transfer funds']
+Software Engineering,debug_code,I am using Python and getting a TypeError when I try to concatenate a string and an integer. My code is print('Hello' + 5).,[],"['Python', 'TypeError', ""print('Hello' + 5)""]",['concatenate string and integer']
+Healthcare,book_appointment,My name is Sarah and I need to schedule an appointment with Dr. Smith. I have a fever and a cough.,"['Sarah', 'Dr. Smith']","['fever', 'cough']",['schedule appointment']
+Finance,check_credit_score,I am Michael and my social security number is 111-11-1111. What is my current credit score?,"['Michael', '111-11-1111']",[],['credit score']
+Software Engineering,optimize_algorithm,I am using Java and trying to optimize my sorting algorithm. My current implementation has a time complexity of O(n^2).,[],"['Java', 'O(n^2)']","['optimize sorting algorithm', 'time complexity']"
+Healthcare,check_medical_history,My medical record number is 12345. I have a history of heart disease and high blood pressure. What are my current medication options?,['12345'],"['heart disease', 'high blood pressure']",['current medication options']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"I'm Jane Smith, and my social security number is 123-45-6789. What's my current account balance?","['Jane Smith', '123-45-6789']",[],['current account balance']
+Software Engineering,fix_api_error,"My name is Bob, and I'm having trouble with the GitHub API endpoint https://api.github.com/users/bob. It's returning a 404 error.",['Bob'],['https://api.github.com/users/bob'],"['GitHub API', '404 error']"
+Healthcare,find_doctor,"I live at 123 Main St, Anytown, USA, and I need to find a doctor who specializes in diabetes care.","['123 Main St, Anytown, USA']",['diabetes'],['doctor']
+Finance,transfer_funds,"My name is Alice, and I want to transfer $1000 from my checking account to my savings account.",['Alice'],['$1000'],"['checking account', 'savings account']"
+Software Engineering,troubleshoot_code,"I'm trying to fix a bug in my Python code, and I'm getting a TypeError on line 12. Can you help me?",[],"['Python', 'line 12']","['TypeError', 'bug']"
+Healthcare,check_medical_history,"My medical record number is 12345, and I have a history of heart disease. Can I get a vaccine?",['12345'],['heart disease'],['vaccine']
+Finance,apply_for_loan,"I'm Michael, and my annual income is $50,000. Can I get a loan for $20,000?",['Michael'],"['$50,000', '$20,000']",['loan']
+Software Engineering,optimize_database,"I'm using MySQL, and my database is slow. Can you help me optimize my queries?",[],['MySQL'],"['database', 'queries']"
+Healthcare,check_treatment_options,"My name is Emily, and I have been diagnosed with cancer. What are my treatment options?",['Emily'],['cancer'],['treatment options']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,account_balance_inquiry,"Hi, my name is Jane Smith, and my social security number is 123-45-6789. What is my current account balance?","['Jane Smith', '123-45-6789']",[],['account balance']
+Software Engineering,api_endpoint_lookup,I need to integrate with the PayPal API. What is the endpoint for processing payments?,[],"['PayPal API', 'processing payments']",[]
+Healthcare,symptom_checker,"My name is Bob Johnson, and I have been experiencing fever and headache. What could be the cause?",['Bob Johnson'],"['fever', 'headache']",[]
+Finance,stock_price_lookup,What is the current stock price of Apple?,[],['Apple'],['stock price']
+Software Engineering,code_completion,"I am writing a Python script, and I need to implement a function to sort a list. Can you provide an example?",[],"['Python', 'sort a list']",['function']
+Healthcare,disease_risk_assessment,My family has a history of diabetes. What are my chances of developing the disease?,[],['diabetes'],['family history']
+Finance,credit_score_inquiry,"My name is Alice Brown, and my social security number is 987-65-4321. What is my current credit score?","['Alice Brown', '987-65-4321']",[],['credit score']
+Software Engineering,bug_reporting,I am experiencing an issue with my JavaScript code. The error message is 'undefined is not a function'. Can you help me troubleshoot?,[],"['JavaScript', 'undefined is not a function']",[]
+Healthcare,medication_side_effect_lookup,My doctor prescribed me Lisinopril. What are the possible side effects of this medication?,[],['Lisinopril'],['side effects']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"I am Emily, my SSN is 123-45-6789, and I have an account at Bank of America. What is my current balance?","['Emily', '123-45-6789']",['Bank of America'],['current balance']
+Software Engineering,debug_code,"My name is David Lee, and I am using Python 3.9. I have a bug in my code that uses the requests library. Can you help me fix it?",['David Lee'],"['Python 3.9', 'requests library']",['bug in my code']
+Healthcare,check_disease_risk,"My name is Sarah Taylor, I have a family history of diabetes, and I am 35 years old. What is my risk of developing diabetes?",['Sarah Taylor'],"['diabetes', '35 years old']",['family history']
+Finance,apply_for_loan,"I am Michael Brown, my address is 123 Main St, and I want to apply for a loan of $10,000. What are the interest rates?","['Michael Brown', '123 Main St']","['$10,000']","['loan', 'interest rates']"
+Software Engineering,optimize_algorithm,"My name is Kevin White, and I am using Java 11. I have an algorithm that uses the merge sort method. Can you help me optimize it?",['Kevin White'],"['Java 11', 'merge sort method']",['optimize algorithm']
+Healthcare,check_medication_side_effects,"I am Olivia Martin, I have high blood pressure, and I take Lisinopril. What are the possible side effects of this medication?",['Olivia Martin'],"['high blood pressure', 'Lisinopril']",['side effects']
+Finance,check_investment_performance,"My name is William Davis, my portfolio includes stocks in Apple and Google, and I want to know the current value of my investments.",['William Davis'],"['Apple', 'Google']",['current value of my investments']
+Software Engineering,troubleshoot_network_issue,"I am James Wilson, I am using Ubuntu 20.04, and I have a network issue with my WiFi connection. Can you help me troubleshoot?",['James Wilson'],['Ubuntu 20.04'],"['network issue', 'WiFi connection']"
+Healthcare,check_vaccine_availability,"My name is Jessica Thompson, I am 28 years old, and I want to know if the COVID-19 vaccine is available in my area.",['Jessica Thompson'],"['28 years old', 'COVID-19 vaccine']",['vaccine availability']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,I'm Jane Smith with SSN 123-45-6789. What's my current balance in my savings account?,"['Jane Smith', '123-45-6789']",[],['savings account']
+Software Engineering,debug_code_issue,"My name is Alex, and I'm working on a project using Python 3.9. I'm getting a TypeError on line 23. Can you help me?",['Alex'],['Python 3.9'],"['TypeError', 'line 23']"
+Healthcare,schedule_appointment,"I'm Michael Brown, and I need to schedule a follow-up appointment with Dr. Smith for my diabetes check-up.",['Michael Brown'],['diabetes'],"['Dr. Smith', 'follow-up appointment']"
+Finance,apply_for_loan,"My address is 123 Main St, and I'm applying for a $50,000 loan. What's the interest rate?",['123 Main St'],"['$50,000']","['loan', 'interest rate']"
+Software Engineering,optimize_code_performance,"I'm using the TensorFlow library, and my model is taking too long to train. Can you help me optimize it?",[],['TensorFlow'],"['model', 'train']"
+Healthcare,check_insurance_coverage,"My name is Emily, and I have Blue Cross Blue Shield insurance. Am I covered for a knee replacement surgery?",['Emily'],"['Blue Cross Blue Shield', 'knee replacement surgery']",[]
+Finance,check_credit_score,"I'm David Lee, and I want to check my credit score. My SSN is 987-65-4321.","['David Lee', '987-65-4321']",[],['credit score']
+Software Engineering,fix_api_endpoint_issue,I'm getting a 404 error when calling the https://api.example.com/users endpoint. Can you help me?,[],['https://api.example.com/users'],['404 error']
+Healthcare,check_medical_test_results,"My name is Sarah, and I'm waiting for my blood test results. Can you tell me if everything is normal?",['Sarah'],['blood test'],['test results']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],"['asthma', 'Albuterol']",['coffee']
+Finance,check_account_balance,"Hi, my SSN is 123-45-6789 and my account number is 9876. What is my current balance?",['123-45-6789'],['9876'],['current balance']
+Software Engineering,debug_code_issue,I am trying to use the Google Maps API to get directions. My API key is xyz123 and I am getting an error.,['xyz123'],['Google Maps API'],"['get directions', 'error']"
+Healthcare,schedule_appointment,My name is Emily Chen and I need to schedule an appointment with Dr. Smith. I have diabetes and take insulin.,"['Emily Chen', 'Dr. Smith']","['diabetes', 'insulin']",['schedule an appointment']
+Finance,apply_for_loan,"I want to apply for a loan of $10,000. My credit score is 750 and I have a monthly income of $5,000.","['$10,000', '750', '$5,000']",[],['apply for a loan']
+Software Engineering,optimize_algorithm,I am trying to optimize my algorithm for a machine learning model. I am using Python and the scikit-learn library.,[],"['machine learning model', 'scikit-learn library']","['optimize algorithm', 'Python']"
+Healthcare,check_insurance_coverage,My name is David Lee and I have a Blue Cross Blue Shield insurance plan. Does it cover my medication for high blood pressure?,['David Lee'],"['high blood pressure', 'Blue Cross Blue Shield']","['medication', 'insurance plan']"
+Finance,transfer_funds,"I want to transfer $1,000 from my account 1234 to account 5678. My routing number is 111000025.",['111000025'],"['$1,000', '1234', '5678']",['transfer funds']
+Software Engineering,fix_bug,I am getting a bug in my JavaScript code. The error message is 'undefined is not a function'. I am using the React library.,[],['React library'],"['JavaScript code', 'error message', 'bug']"
+Healthcare,check_symptoms,I have a fever of 102°F and a headache. I also have a history of migraines. What could be the cause of my symptoms?,[],"['fever', 'headache', 'migraines']",['symptoms']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,My social security number is 123-45-6789. I have an account at Bank of America. What is my current balance?,['123-45-6789'],['Bank of America'],['account balance']
+Software Engineering,debug_code,My name is Jane Smith. I am trying to fix a bug in my Python code using the TensorFlow library. Can you help me with this error message?,['Jane Smith'],"['TensorFlow', 'Python']","['bug', 'error message']"
+Healthcare,check_insurance_coverage,My name is Emily Johnson. I have a UnitedHealthcare insurance plan. Does it cover my diabetes medication?,['Emily Johnson'],"['UnitedHealthcare', 'diabetes']","['medication', 'insurance plan']"
+Finance,transfer_funds,My address is 123 Main Street. I want to transfer $1000 from my checking account to my savings account at Wells Fargo.,['123 Main Street'],"['Wells Fargo', '$1000']","['checking account', 'savings account']"
+Software Engineering,integrate_api,My company is ABC Corporation. We are trying to integrate the Stripe API into our e-commerce platform. Can you provide an example?,['ABC Corporation'],['Stripe API'],"['e-commerce platform', 'integration']"
+Healthcare,check_symptoms,My phone number is 555-1234. I have been experiencing symptoms of COVID-19. What should I do?,['555-1234'],['COVID-19'],['symptoms']
+Finance,check_credit_score,My email address is john.doe@example.com. I want to check my credit score using Experian.,['john.doe@example.com'],['Experian'],['credit score']
+Software Engineering,optimize_performance,My name is Michael Brown. I am trying to optimize the performance of my web application using the Apache Kafka library.,['Michael Brown'],['Apache Kafka'],"['web application', 'performance']"
+Healthcare,schedule_appointment,My name is Sarah Lee. I have a doctor's appointment at Mayo Clinic. Can I reschedule it for next week?,['Sarah Lee'],['Mayo Clinic'],"[""doctor's appointment"", 'reschedule']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,My SSN is 123-45-6789. I have an account at Bank of America. What is my current balance?,['123-45-6789'],[],"['Bank of America', 'account balance']"
+Software Engineering,debug_code,I am using Python 3.9. My code has a bug at line 10. Can you help me fix the error in my API call to https://api.example.com/users?,[],['https://api.example.com/users'],"['Python 3.9', 'line 10', 'API call']"
+Healthcare,diagnose_symptoms,"My patient, Jane Smith, has a fever and headache. Can you diagnose the cause of her symptoms?",['Jane Smith'],"['fever', 'headache']",[]
+Finance,transfer_funds,I want to transfer $1000 from my account 1234567890 to account 9876543210.,"['1234567890', '9876543210']",['$1000'],['transfer funds']
+Software Engineering,optimize_performance,My application is slow when querying the database. Can you help me optimize the performance of my SQL query?,[],"['database', 'SQL query']",['application performance']
+Healthcare,prescribe_medication,My patient has diabetes and high blood pressure. What medication can I prescribe to lower their blood pressure?,[],"['diabetes', 'high blood pressure']","['medication', 'blood pressure']"
+Finance,apply_for_loan,I want to apply for a loan of $50000. My credit score is 700.,[],"['$50000', '700']",['loan application']
+Software Engineering,fix_compiler_error,I am getting a compiler error when trying to compile my C++ code. Can you help me fix the error?,[],['C++'],['compiler error']
+Healthcare,schedule_appointment,"I need to schedule an appointment with Dr. Smith for my patient, Bob Johnson.",['Bob Johnson'],['Dr. Smith'],['schedule appointment']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,transfer_funds,"I, Jane Smith, want to transfer $1000 from my account 1234567890 to my friend's account 0987654321.",['Jane Smith'],"['$1000', 'account 1234567890', 'account 0987654321']",['transfer funds']
+Software Engineering,fix_api_error,My name is Bob and I'm getting a 404 error when calling the https://api.example.com/users endpoint with a GET request.,['Bob'],['https://api.example.com/users'],"['404 error', 'GET request']"
+Healthcare,diagnose_symptoms,I have a fever and a cough. My name is Emily and I'm 30 years old. Can I have COVID-19?,"['Emily', '30 years old']","['fever', 'cough', 'COVID-19']",[]
+Finance,check_account_balance,My name is Michael and my account number is 1111111111. What is my current balance?,['Michael'],['account number 1111111111'],['current balance']
+Software Engineering,improve_code_performance,I'm using Python and my code is running slow. My name is David and I'm using the pandas library. Can you help me optimize it?,['David'],['pandas library'],"['Python', 'code performance']"
+Healthcare,find_treatment_options,I have diabetes and my name is Sophia. I'm looking for alternative treatments. Can you suggest some options?,['Sophia'],['diabetes'],['alternative treatments']
+Finance,apply_for_loan,My name is Olivia and I want to apply for a $50000 loan. My social security number is 123-45-6789 and my address is 123 Main St.,"['Olivia', '123 Main St']","['$50000', '123-45-6789']",['loan application']
+Software Engineering,debug_code,My name is Jackson and I'm getting a syntax error when running my Java code. The error message is 'cannot find symbol'.,['Jackson'],"['Java code', 'syntax error', 'cannot find symbol']",[]
+Healthcare,track_vaccination_status,My name is Ava and I want to know if I'm up to date on my vaccinations. I have a history of measles and my birthdate is 01/01/1990.,"['Ava', '01/01/1990']",['measles'],['vaccination status']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,My SSN is 123-45-6789. I have an account at Bank of America. What is my current balance?,['123-45-6789'],['Bank of America'],['current balance']
+Software Engineering,debug_code_issue,"I am working on a project with my colleague, Jane Smith. We are using Python and the Django framework. Why is our code throwing a TypeError?",['Jane Smith'],['Django framework'],"['Python', 'TypeError']"
+Healthcare,schedule_appointment,My name is Emily Chen. I need to schedule an appointment with Dr. Lee. I have diabetes and take Metformin.,['Emily Chen'],['diabetes'],"['Dr. Lee', 'Metformin']"
+Finance,apply_for_loan,My address is 123 Main St. I have a credit score of 750. Can I apply for a mortgage loan?,['123 Main St'],['750'],['mortgage loan']
+Software Engineering,optimize_code_performance,I am working on a project with a team. We are using Java and the Spring framework. How can we improve the performance of our code?,[],['Spring framework'],"['Java', 'performance']"
+Healthcare,check_insurance_coverage,My name is David Kim. I have a Blue Cross Blue Shield insurance plan. Does my plan cover physical therapy?,['David Kim'],['Blue Cross Blue Shield'],['physical therapy']
+Finance,transfer_money,My account number is 1234567890. I want to transfer $1000 to my friend's account.,['1234567890'],['$1000'],['transfer money']
+Software Engineering,fix_bug,"I am working on a project with my colleague, Michael Brown. We are using C++ and the Qt framework. How can we fix this bug?",['Michael Brown'],['Qt framework'],"['C++', 'bug']"
+Healthcare,check_medical_history,My medical record number is 12345. I have a history of hypertension. What are my current medication options?,['12345'],['hypertension'],['medication options']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,My social security number is 123-45-6789. I have an account at Bank of America. What is my current balance?,['123-45-6789'],[],"['Bank of America', 'current balance']"
+Software Engineering,fix_api_error,I am using the GitHub API to fetch user data. The API endpoint is https://api.github.com/users/octocat. I am getting a 404 error.,[],['https://api.github.com/users/octocat'],"['GitHub API', '404 error']"
+Healthcare,check_disease_risk,My name is Jane Smith. I have a family history of diabetes. What are my chances of getting diabetes?,['Jane Smith'],['diabetes'],['family history']
+Finance,apply_for_loan,"My address is 123 Main St. I want to apply for a loan of $10,000. What are the interest rates?",['123 Main St'],"['$10,000']","['loan', 'interest rates']"
+Software Engineering,optimize_code_performance,I am using Python to develop a machine learning model. The code is running slowly. How can I optimize it?,[],[],"['Python', 'machine learning model', 'optimize']"
+Healthcare,check_medication_side_effects,I have high blood pressure and take Lisinopril. What are the possible side effects?,[],"['high blood pressure', 'Lisinopril']",['side effects']
+Finance,check_investment_portfolio,My name is Bob Johnson. I have a portfolio with Fidelity Investments. What are my current holdings?,['Bob Johnson'],[],"['Fidelity Investments', 'current holdings']"
+Software Engineering,fix_database_error,I am using MySQL to store user data. The database is giving an error. What is the issue?,[],['MySQL'],['database error']
+Healthcare,check_symptom_severity,My name is Alice Brown. I have a fever of 102 degrees. How severe is my condition?,['Alice Brown'],['fever'],"['102 degrees', 'condition']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"Hi, my name is Emily and my account number is 1234567890. What is my current balance?","['Emily', '1234567890']",[],['current balance']
+Software Engineering,debug_code,I am having issues with my Python script. The error message is 'TypeError: cannot concatenate str and int'. Can you help me?,[],['TypeError: cannot concatenate str and int'],['Python script']
+Healthcare,schedule_appointment,My name is Jane Smith and I need to schedule an appointment with Dr. Lee. My phone number is 555-1234.,"['Jane Smith', '555-1234']",['Dr. Lee'],['schedule an appointment']
+Finance,transfer_funds,I want to transfer $1000 from my checking account to my savings account. My account number is 9876543210.,['9876543210'],['$1000'],"['checking account', 'savings account']"
+Software Engineering,optimize_performance,My Java application is running slow. The CPU usage is 90% and the memory usage is 80%. Can you help me optimize it?,[],"['CPU usage is 90%', 'memory usage is 80%']",['Java application']
+Healthcare,check_insurance_coverage,My name is Bob Johnson and I have Blue Cross Blue Shield insurance. Does my plan cover chiropractic care?,['Bob Johnson'],"['Blue Cross Blue Shield', 'chiropractic care']",[]
+Finance,apply_for_loan,I want to apply for a $50000 loan. My social security number is 123-45-6789 and my income is $60000 per year.,['123-45-6789'],"['$50000', '$60000 per year']",['loan application']
+Software Engineering,fix_bug,I am experiencing a bug with my C++ code. The error message is 'Segmentation fault'. Can you help me fix it?,[],['Segmentation fault'],['C++ code']
+Healthcare,check_disease_risk,My family has a history of diabetes. My name is Alice Williams and I am 35 years old. What is my risk of developing diabetes?,['Alice Williams'],"['diabetes', '35 years old']",['family history']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"I am Emily, my social security number is 123-45-6789 and I have an account at Bank of America. What is my current balance?","['Emily', '123-45-6789']",['Bank of America'],['current balance']
+Software Engineering,fix_code_issue,My name is David Lee and I am working on a project using Python 3.9. I have an issue with my API endpoint at https://example.com/api/users. It is not returning the expected result.,['David Lee'],['https://example.com/api/users'],"['Python 3.9', 'API endpoint', 'expected result']"
+Healthcare,schedule_appointment,"I am Jane Smith, my date of birth is 01/01/1990, and I need to schedule an appointment with Dr. Smith at 123 Main St. Can I get an appointment on Friday?","['Jane Smith', '01/01/1990', '123 Main St']",['Dr. Smith'],"['appointment', 'Friday']"
+Finance,transfer_funds,"My name is Michael Davis, my account number is 1234567890, and I want to transfer $1000 to my savings account.","['Michael Davis', '1234567890']",['$1000'],"['transfer', 'savings account']"
+Software Engineering,optimize_code,I am working on a project using Java 11 and I have a function that is not optimized. The function is used to calculate the average of a list of numbers. Can you help me optimize it?,[],['Java 11'],"['function', 'average', 'list of numbers', 'optimize']"
+Healthcare,check_insurance_coverage,"My name is Sophia Rodriguez, I have a policy with Blue Cross Blue Shield, and I need to know if my policy covers a specific treatment for diabetes.",['Sophia Rodriguez'],"['diabetes', 'Blue Cross Blue Shield']","['policy', 'treatment', 'coverage']"
+Finance,apply_for_loan,"I am Olivia Brown, my social security number is 987-65-4321, and I want to apply for a loan of $50000. What are the requirements?","['Olivia Brown', '987-65-4321']",['$50000'],"['loan', 'requirements']"
+Software Engineering,debug_code,"I am Ethan Hall, I am working on a project using C++ and I have an issue with my code. The error message is 'segmentation fault'. Can you help me debug it?",['Ethan Hall'],"['C++', 'segmentation fault']","['code', 'debug', 'issue']"
+Healthcare,check_medical_history,"My name is Ava Chen, I have a medical history of hypertension and I am taking Amlodipine. Can I take a vaccine for COVID-19?",['Ava Chen'],"['hypertension', 'Amlodipine']","['vaccine', 'COVID-19']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"I am Emily, my SSN is 123-45-6789 and I have an account at Bank of America. What is my current balance?","['Emily', '123-45-6789']",[],['Bank of America']
+Software Engineering,debug_code,"My name is David, I am working on a project using Python and I have an issue with my API endpoint https://example.com/api/users. Can you help me fix it?",['David'],['https://example.com/api/users'],['Python']
+Healthcare,book_appointment,"My name is Sarah, I live at 123 Main St and I need to book an appointment with Dr. Smith for my diabetes checkup.","['Sarah', '123 Main St']",['diabetes'],['Dr. Smith']
+Finance,transfer_funds,"I am Michael, my account number is 123456789 and I want to transfer $1000 to my friend's account 987654321 at Wells Fargo.",['Michael'],['$1000'],"['Wells Fargo', '123456789', '987654321']"
+Software Engineering,optimize_algorithm,"My name is Rachel, I am working on a machine learning project using TensorFlow and I need help optimizing my neural network model.",['Rachel'],[],"['TensorFlow', 'neural network model']"
+Healthcare,check_insurance_coverage,"My name is Kevin, I have Blue Cross Blue Shield insurance and I need to know if my plan covers my upcoming surgery for knee replacement.",['Kevin'],['knee replacement'],['Blue Cross Blue Shield']
+Finance,check_credit_score,"I am Olivia, my SSN is 987-65-4321 and I want to check my credit score.","['Olivia', '987-65-4321']",[],[]
+Software Engineering,troubleshoot_error,"My name is Christopher, I am working on a project using Java and I am getting a NullPointerException. Can you help me fix it?",['Christopher'],[],"['Java', 'NullPointerException']"
+Healthcare,check_medication_side_effects,"My name is Amanda, I take Lisinopril for my blood pressure and I want to know if it can cause any side effects.",['Amanda'],['blood pressure'],['Lisinopril']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,account_balance_inquiry,"Hi, my name is Emily and my account number is 1234567890. What is my current balance?","['Emily', '1234567890']",[],['current balance']
+Software Engineering,debug_code_issue,My name is David and I am using Python 3.9. I have an issue with my code that uses the requests library. Can you help me?,['David'],"['Python 3.9', 'requests library']",['code issue']
+Healthcare,symptom_checker,I have a fever of 102 degrees and a headache. What could be the cause?,[],"['fever', 'headache']",['cause']
+Finance,loan_application,"My name is Sarah and I have an annual income of $50,000. Can I get a loan of $20,000?",['Sarah'],"['$50,000', '$20,000']",['loan application']
+Software Engineering,api_endpoint_info,What is the endpoint for the GitHub API to retrieve user information?,[],"['GitHub API', 'user information']",['endpoint']
+Healthcare,disease_risk_assessment,My family has a history of diabetes. What are my chances of getting it?,[],['diabetes'],"['family history', 'risk assessment']"
+Finance,investment_advice,"I have $10,000 to invest. What are some good options?",[],"['$10,000']",['investment options']
+Software Engineering,bug_reporting,I am using JavaScript and I have a bug in my code. Can you help me fix it?,[],['JavaScript'],"['bug', 'code']"
+Healthcare,medication_side_effects,My doctor prescribed me Lisinopril. What are the possible side effects?,[],['Lisinopril'],['side effects']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,My SSN is 123-45-6789. I live at 123 Main St. What is my current account balance?,"['123-45-6789', '123 Main St']",[],['current account balance']
+Software Engineering,debug_code_issue,I am using Java and Eclipse. My code has a bug on line 10. Can you help me fix it?,[],"['Java', 'Eclipse']",['bug on line 10']
+Healthcare,schedule_appointment,My name is Jane Smith. I need to schedule an appointment with Dr. Johnson. I have diabetes.,['Jane Smith'],['diabetes'],"['Dr. Johnson', 'schedule an appointment']"
+Finance,transfer_funds,My bank account number is 1234567890. I want to transfer $100 to my friend's account.,['1234567890'],['$100'],['transfer funds']
+Software Engineering,optimize_algorithm,I am using Python and TensorFlow. My algorithm is slow. Can you help me optimize it?,[],"['Python', 'TensorFlow']",['optimize algorithm']
+Healthcare,check_insurance_coverage,My name is Bob Johnson. I have a Blue Cross Blue Shield insurance plan. Am I covered for a knee replacement surgery?,['Bob Johnson'],"['Blue Cross Blue Shield', 'knee replacement surgery']",[]
+Finance,apply_for_loan,"My name is Alice Brown. I live at 456 Elm St. I want to apply for a $50,000 loan.","['Alice Brown', '456 Elm St']","['$50,000']",['apply for loan']
+Software Engineering,troubleshoot_network_issue,I am using Ubuntu and Apache. My website is down. Can you help me troubleshoot the issue?,[],"['Ubuntu', 'Apache']",['website is down']
+Healthcare,check_medical_history,My name is Mike Davis. I have a history of heart disease. Can I take a certain medication?,['Mike Davis'],['heart disease'],['certain medication']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,transfer_funds,"I am Jane Smith, and my social security number is 123-45-6789. I want to transfer $1000 from my checking account to my savings account.","['Jane Smith', '123-45-6789']",['$1000'],"['checking account', 'savings account']"
+Software Engineering,debug_code,"My name is Emily, and I am having trouble with my Python code. The error message is ""TypeError: cannot concatenate 'str' and 'int' objects"". Can you help me fix it?",['Emily'],"[""TypeError: cannot concatenate 'str' and 'int' objects""]",['Python code']
+Healthcare,check_insurance_coverage,"My name is Michael, and I have Blue Cross Blue Shield insurance. Does my plan cover the cost of a knee replacement surgery?",['Michael'],['Blue Cross Blue Shield'],['knee replacement surgery']
+Finance,apply_for_loan,"I am David, and my address is 123 Main St. I want to apply for a $5000 personal loan with a 6% interest rate.","['David', '123 Main St']","['$5000', '6% interest rate']",['personal loan']
+Software Engineering,optimize_algorithm,"My team is working on a project, and we need to optimize our sorting algorithm to improve performance. Can you suggest some techniques?",[],['sorting algorithm'],"['optimize', 'performance']"
+Healthcare,check_symptoms,"My name is Sophia, and I have been experiencing headaches and fatigue. Can you help me identify the possible causes?",['Sophia'],"['headaches', 'fatigue']",[]
+Finance,check_account_balance,"I am Olivia, and my account number is 1234567890. What is my current account balance?","['Olivia', '1234567890']",[],['account balance']
+Software Engineering,design_database,"My team is building a new application, and we need to design a database schema to store user information. Can you provide some guidance?",[],"['database schema', 'user information']",['application']
+Healthcare,check_treatment_options,"My name is Jackson, and I have been diagnosed with diabetes. What are my treatment options?",['Jackson'],['diabetes'],['treatment options']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"Hello, my SSN is 123-45-6789. What is my current balance in my savings account?",['123-45-6789'],['savings account'],['current balance']
+Software Engineering,fix_api_error,I am trying to call the https://api.example.com/users endpoint but I get a 401 error. My API key is XYZ123.,['XYZ123'],['https://api.example.com/users'],['401 error']
+Healthcare,diagnose_symptoms,"My daughter, Emily, has a fever of 103°F and a headache. What could be the cause?",['Emily'],"['fever', 'headache']",['103°F']
+Finance,transfer_funds,I want to transfer $1000 from my checking account to my friend's account. My friend's name is Sarah Lee.,['Sarah Lee'],['checking account'],['$1000']
+Software Engineering,debug_code,I am getting a null pointer exception in my Java code at line 25. Can you help me fix it?,[],"['null pointer exception', 'line 25']",['Java code']
+Healthcare,check_insurance_coverage,My name is Michael Brown. I have a UnitedHealthcare insurance plan. Does it cover my upcoming surgery?,['Michael Brown'],['UnitedHealthcare'],['surgery']
+Finance,check_credit_score,I am applying for a mortgage and I want to know my credit score. My SSN is 987-65-4321.,['987-65-4321'],[],"['mortgage', 'credit score']"
+Software Engineering,optimize_performance,My Python script is running slow. Can you help me optimize its performance? The script is using the pandas library.,[],['pandas library'],"['Python script', 'performance']"
+Healthcare,check_vaccination_schedule,"My son, David, is 2 years old. What vaccinations is he due for?",['David'],['2 years old'],['vaccinations']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"I am Emily, my social security number is 123-45-6789 and I have an account at Bank of America. What is my current balance?","['Emily', '123-45-6789']",['Bank of America'],['current balance']
+Software Engineering,debug_code,My name is David and I am working on a project using Python. I have an issue with my code that uses the requests library to fetch data from https://api.example.com/users. The error message is 'connection refused'.,['David'],['https://api.example.com/users'],"['Python', 'requests library', 'connection refused']"
+Healthcare,diagnose_symptoms,"Jane Doe has been experiencing symptoms of diabetes, including high blood sugar and fatigue. What could be the possible diagnosis?",['Jane Doe'],"['diabetes', 'high blood sugar', 'fatigue']",[]
+Finance,apply_for_loan,"My name is Michael and my annual income is $50,000. I want to apply for a mortgage loan to buy a house worth $200,000.",['Michael'],"['$50,000', '$200,000']",['mortgage loan']
+Software Engineering,optimize_performance,The application is built using Java and is experiencing performance issues due to high memory usage. What are some possible solutions?,[],['Java'],"['high memory usage', 'performance issues']"
+Healthcare,check_insurance_coverage,My name is Sophia and I have a Blue Cross Blue Shield insurance plan. Does it cover the cost of a knee replacement surgery?,['Sophia'],"['Blue Cross Blue Shield', 'knee replacement surgery']",[]
+Finance,invest_in_stocks,"I am interested in investing $10,000 in the stock market. What are some good stocks to invest in?",[],"['$10,000']",['stock market']
+Software Engineering,fix_bug,There is a bug in the login feature of our application that is built using React. The error message is 'invalid username or password'.,[],"['React', 'login feature']",['invalid username or password']
+Healthcare,schedule_appointment,My name is Olivia and I need to schedule an appointment with Dr. Smith. I have a condition that requires regular check-ups.,"['Olivia', 'Dr. Smith']",['condition'],['schedule an appointment']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,transfer_funds,"Hello, I'm Jane Smith with account 123456. I want to transfer $1000 to my friend's account 789012.",['Jane Smith'],"['$1000', 'account 789012']","['transfer funds', 'account 123456']"
+Software Engineering,fix_bug,"My name is Emily, and I'm working on a project using Python 3.9. I have a bug in my code that's causing a TypeError on line 25.",['Emily'],"['Python 3.9', 'TypeError on line 25']","['fix bug', 'project']"
+Healthcare,diagnose_symptoms,I'm a 35-year-old male with a fever of 102°F and a cough. What could be wrong with me?,['35-year-old male'],"['fever of 102°F', 'cough']",['diagnose symptoms']
+Finance,apply_for_loan,"I'm David Lee with a social security number of 123-45-6789. I want to apply for a mortgage loan of $500,000.","['David Lee', '123-45-6789']","['$500,000']",['apply for mortgage loan']
+Software Engineering,optimize_code,"My name is Michael, and I'm working on a Java project. I want to optimize the performance of my code, which is using a lot of memory.",['Michael'],"['Java project', 'using a lot of memory']","['optimize code', 'performance']"
+Healthcare,find_specialist,I have diabetes and I'm looking for an endocrinologist in New York City.,[],"['diabetes', 'endocrinologist']","['find specialist', 'New York City']"
+Finance,check_account_balance,"Hello, I'm Sarah Taylor with account number 901234. What's my current account balance?",['Sarah Taylor'],['account number 901234'],['check account balance']
+Software Engineering,implement_api,I'm working on a project and I need to implement an API using RESTful services. Can you help me with that?,[],['RESTful services'],"['implement API', 'project']"
+Healthcare,understand_treatment_options,My mother has been diagnosed with breast cancer. What are her treatment options?,[],['breast cancer'],['treatment options']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"I am Emily, my SSN is 123-45-6789. What is my checking account balance?","['Emily', '123-45-6789']",[],['checking account balance']
+Software Engineering,fix_api_error,The API endpoint https://api.example.com/users is returning a 500 error. How can I troubleshoot it?,[],['https://api.example.com/users'],"['500 error', 'troubleshoot']"
+Healthcare,diagnose_symptoms,"My daughter, Jane, has a fever of 102°F and a cough. What could be the cause?",['Jane'],"['fever', 'cough']",['102°F']
+Finance,apply_for_loan,"I am Michael, my annual income is $50,000. Can I get a loan for $20,000?",['Michael'],"['$50,000']","['$20,000']"
+Software Engineering,optimize_code,The function foo() is taking too long to execute. How can I optimize it?,[],['foo()'],['optimize']
+Healthcare,check_insurance_coverage,"My name is David, I have insurance with Blue Cross Blue Shield. Does it cover diabetes treatment?",['David'],['diabetes'],['Blue Cross Blue Shield']
+Finance,transfer_funds,"I am Sarah, my account number is 1234567890. Can I transfer $1,000 to my savings account?","['Sarah', '1234567890']","['$1,000']",['savings account']
+Software Engineering,debug_code,The code is throwing a NullPointerException at line 10. How can I fix it?,[],"['NullPointerException', 'line 10']",['fix']
+Healthcare,find_doctor,"My name is Olivia, I am looking for a doctor in New York who specializes in cardiology.",['Olivia'],['cardiology'],['New York']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"I am Emily, my SSN is 123-45-6789. What is my current bank account balance?","['Emily', '123-45-6789']",[],['bank account balance']
+Software Engineering,fix_api_error,"My name is David Lee, and I'm trying to access https://api.example.com/users. I'm getting a 403 error.",['David Lee'],['https://api.example.com/users'],['403 error']
+Healthcare,schedule_appointment,"My name is Jane Smith, and I have diabetes. I need to schedule a doctor's appointment at 123 Main St.","['Jane Smith', '123 Main St']",['diabetes'],"[""doctor's appointment""]"
+Finance,transfer_funds,I want to transfer $1000 from my account 123456789 to account 987654321.,[],"['$1000', '123456789', '987654321']",['transfer funds']
+Software Engineering,debug_code,"My name is Michael Brown, and I'm trying to compile my code. I'm getting a syntax error on line 10.",['Michael Brown'],[],"['syntax error', 'line 10']"
+Healthcare,check_insurance_coverage,"My name is Olivia Johnson, and I have a Blue Cross insurance plan. Am I covered for a knee replacement surgery?",['Olivia Johnson'],"['Blue Cross', 'knee replacement surgery']",['insurance coverage']
+Finance,check_credit_score,"I am Daniel Kim, my SSN is 987-65-4321. What is my current credit score?","['Daniel Kim', '987-65-4321']",[],['credit score']
+Software Engineering,optimize_algorithm,"My name is Sophia Patel, and I'm trying to optimize my sorting algorithm. It's currently using bubble sort.",['Sophia Patel'],['bubble sort'],"['optimize algorithm', 'sorting']"
+Healthcare,check_medical_history,"My name is Ethan Hall, and I have a history of heart disease. Can I take a certain medication?",['Ethan Hall'],['heart disease'],['medication']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"I am Emily, my SSN is 123-45-6789. What is my current balance in my savings account?","['Emily', '123-45-6789']",['savings account'],['current balance']
+Software Engineering,fix_api_error,"My name is David Lee, I'm working on a project and getting a 404 error on the https://api.example.com/users endpoint. How do I fix it?",['David Lee'],['https://api.example.com/users'],['404 error']
+Healthcare,book_doctor_appointment,"I need to schedule an appointment with Dr. Smith for my daughter, who has diabetes. She lives at 123 Main St.","['Dr. Smith', '123 Main St']",['diabetes'],['schedule an appointment']
+Finance,transfer_funds,"My name is Michael, I want to transfer $1000 from my checking account to my savings account.",['Michael'],"['$1000', 'checking account', 'savings account']",['transfer funds']
+Software Engineering,debug_code,I'm getting a compilation error on line 10 of my Java code. The error message is 'cannot find symbol'.,[],"['Java code', 'line 10', 'cannot find symbol']",['compilation error']
+Healthcare,check_insurance_coverage,"My name is Sarah, I have a Blue Cross Blue Shield insurance plan. Does it cover my medication for high blood pressure?",['Sarah'],"['high blood pressure', 'Blue Cross Blue Shield']","['insurance coverage', 'medication']"
+Finance,check_credit_score,"I'm James, my SSN is 987-65-4321. What is my current credit score?","['James', '987-65-4321']",[],['credit score']
+Software Engineering,optimize_database_query,My database query is taking too long to execute. The query is 'SELECT * FROM users WHERE age > 18'.,[],['SELECT * FROM users WHERE age > 18'],"['database query', 'optimize']"
+Healthcare,check_vaccine_availability,"My name is Kevin, I live in New York. Where can I get a flu shot near me?",['Kevin'],['flu shot'],"['New York', 'near me']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"Hi, my SSN is 123-45-6789. What's my current balance in my checking account 0123456789?",['123-45-6789'],['checking account 0123456789'],['current balance']
+Software Engineering,api_endpoint_info,What is the purpose of the /users endpoint in the GitHub API?,[],['/users endpoint'],['GitHub API']
+Healthcare,symptom_checker,"My daughter, Emily, has a fever of 102°F and a sore throat. What could be the cause?",['Emily'],"['fever of 102°F', 'sore throat']",[]
+Finance,invest_in_stock,I'd like to invest $1000 in Apple stock. What's the current price?,[],"['Apple stock', '$1000']",['current price']
+Software Engineering,code_completion,Complete this Python code: def greet(name):,[],"['Python', 'def greet(name):']",[]
+Healthcare,medication_side_effects,What are the side effects of taking 20mg of Lisinopril for high blood pressure?,[],"['Lisinopril', '20mg', 'high blood pressure']",['side effects']
+Finance,credit_score_check,My address is 123 Main St. What's my current credit score?,['123 Main St'],[],['credit score']
+Software Engineering,error_debugging,Why does my Java code throw a NullPointerException when I try to access the 'user' variable?,[],"['NullPointerException', 'Java', 'user variable']",[]
+Healthcare,disease_risk_assessment,"What's my risk of developing type 2 diabetes if I'm 35 years old, weigh 180 lbs, and have a family history of the disease?",[],"['type 2 diabetes', '35 years old', '180 lbs', 'family history']",['risk assessment']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,I am Jane Smith with account number 123456789. What is my current balance?,['Jane Smith'],['123456789'],['current balance']
+Software Engineering,debug_code,My name is Alex Johnson. I am using Python 3.9 and getting an error with my API endpoint https://example.com/api/endpoint. Can you help me?,['Alex Johnson'],['https://example.com/api/endpoint'],"['Python 3.9', 'error']"
+Healthcare,schedule_appointment,I need to schedule an appointment with Dr. Smith for my daughter Emily who has diabetes. She lives at 123 Main St.,"['Emily', '123 Main St']",['diabetes'],"['Dr. Smith', 'appointment']"
+Finance,transfer_money,I want to transfer $1000 from my account 123456789 to account 987654321.,[],"['$1000', '123456789', '987654321']",['transfer']
+Software Engineering,optimize_code,My code is running slow and I am using a MySQL database. Can you help me optimize it?,[],['MySQL'],"['optimize', 'slow']"
+Healthcare,check_insurance_coverage,I have insurance with Blue Cross Blue Shield and I am taking medication for high blood pressure. Is it covered?,[],['high blood pressure'],"['Blue Cross Blue Shield', 'medication']"
+Finance,apply_loan,I am John Smith with SSN 123456789 and I want to apply for a loan of $50000.,['John Smith'],"['123456789', '$50000']","['loan', 'apply']"
+Software Engineering,fix_bug,I am getting an error with my JavaScript code and I am using the React framework. Can you help me?,[],['React'],"['JavaScript', 'error']"
+Healthcare,check_vaccination_schedule,My child is 5 years old and has asthma. What is the recommended vaccination schedule?,[],['asthma'],"['5 years old', 'vaccination schedule']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"Hi, my name is Emily and my account number is 123456789. What is my current balance?","['Emily', '123456789']",[],['current balance']
+Software Engineering,fix_bug,My name is David and I'm using Python 3.9. I'm getting a TypeError when trying to append to a tuple. Can you help me?,['David'],"['Python 3.9', 'TypeError', 'tuple']",['append']
+Healthcare,schedule_appointment,"I need to schedule an appointment with Dr. Smith for my daughter, Emily, who has a fever. She lives at 123 Main St.","['Dr. Smith', 'Emily', '123 Main St']",['fever'],['schedule appointment']
+Finance,apply_for_loan,"My name is Michael and I have a credit score of 750. I'd like to apply for a mortgage loan of $200,000.",['Michael'],"['750', '$200,000']","['mortgage loan', 'apply']"
+Software Engineering,optimize_code,I'm using Java 11 and I want to optimize my code for a machine learning model. Can you help me with that?,[],"['Java 11', 'machine learning model']",['optimize code']
+Healthcare,check_insurance_coverage,"My name is Sarah and I have Blue Cross Blue Shield insurance. Does it cover my medication, Albuterol?",['Sarah'],"['Blue Cross Blue Shield', 'Albuterol']",['insurance coverage']
+Finance,check_investment_performance,I have a portfolio with Fidelity and I'd like to know its current value. My account number is 987654321.,['987654321'],['Fidelity'],['portfolio value']
+Software Engineering,troubleshoot_issue,I'm getting a NullPointerException in my Android app. I'm using API level 29. Can you help me troubleshoot?,[],"['NullPointerException', 'API level 29']","['Android app', 'troubleshoot']"
+Healthcare,check_disease_risk,My family has a history of diabetes and I'm 35 years old. What is my risk of developing diabetes?,[],['diabetes'],"['family history', 'age', 'risk']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,calculate_loan_eligibility,"I'm Jane Smith, living at 123 Main St. My annual income is $100,000 and I have a credit score of 750. Can I get a mortgage?","['Jane Smith', '123 Main St']","['$100,000', '750']",['mortgage']
+Software Engineering,debug_code_issue,"My name is Alex, and I'm using Python 3.9. I'm getting an error when trying to connect to the MySQL database using the mysql-connector-python library. Can you help me?",['Alex'],"['Python 3.9', 'mysql-connector-python']","['MySQL database', 'error']"
+Healthcare,identify_symptom_cause,"I'm 35 years old, and I've been experiencing headaches and fatigue. I've been taking medication for diabetes. Can you help me identify the cause?",['35 years old'],['diabetes'],"['headaches', 'fatigue', 'medication']"
+Finance,check_investment_risk,"My social security number is 123-45-6789. I have invested $50,000 in the stock market. What's the risk of losing my investment?",['123-45-6789'],"['$50,000']","['stock market', 'investment risk']"
+Software Engineering,optimize_algorithm_performance,"I'm working on a project using Java 11, and I need to optimize the performance of my sorting algorithm. Can you provide some suggestions?",[],['Java 11'],"['sorting algorithm', 'performance optimization']"
+Healthcare,develop_treatment_plan,"My patient, Michael, has been diagnosed with cancer. He's been experiencing nausea and vomiting. What treatment options are available?",['Michael'],['cancer'],"['nausea', 'vomiting', 'treatment options']"
+Finance,calculate_tax_liability,"I'm self-employed, and I've earned $200,000 in the past year. What's my tax liability?",[],"['$200,000']","['self-employed', 'tax liability']"
+Software Engineering,design_database_schema,I'm working on a project that requires a database schema for storing user information. Can you provide some guidance on designing the schema?,[],[],"['database schema', 'user information']"
+Healthcare,identify_disease_risk_factors,"My family has a history of heart disease. I'm 40 years old, and I've been experiencing high blood pressure. What are the risk factors for heart disease?",['40 years old'],"['heart disease', 'high blood pressure']",['risk factors']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"Hello, my social security number is 123-45-6789 and my account number is 9876. What is my current balance?",['123-45-6789'],['9876'],['current balance']
+Software Engineering,troubleshoot_api_error,I am getting an error when calling the https://api.example.com/users endpoint. My API key is abc123. Can you help me?,['abc123'],['https://api.example.com/users'],['error']
+Healthcare,book_doctor_appointment,My name is Jane Smith and I have a Medicare ID of M12345. I need to schedule an appointment with Dr. Johnson for my diabetes checkup.,['Jane Smith'],"['diabetes', 'M12345']","['Dr. Johnson', 'appointment']"
+Finance,apply_for_loan,"I am Emily Chen and my credit score is 750. I want to apply for a $200,000 mortgage with a 30-year term.",['Emily Chen'],"['$200,000', '30-year term']","['mortgage', 'credit score']"
+Software Engineering,fix_bug_in_code,I am experiencing an issue with my Python code that uses the TensorFlow library. My GitHub username is githubuser and the repository name is myproject.,['githubuser'],"['TensorFlow', 'myproject']","['Python', 'bug']"
+Healthcare,check_insurance_coverage,My name is David Lee and I have a health insurance plan with Blue Cross Blue Shield. Does my plan cover the cost of a knee replacement surgery?,['David Lee'],"['Blue Cross Blue Shield', 'knee replacement surgery']",['health insurance plan']
+Finance,transfer_funds,"I want to transfer $1,000 from my checking account 1234 to my savings account 5678. My routing number is 111000025.",['111000025'],"['$1,000', '1234', '5678']","['transfer', 'checking account', 'savings account']"
+Software Engineering,optimize_database_query,I am using MySQL and my database name is mydatabase. I want to optimize a query that joins the users and orders tables.,[],"['mydatabase', 'users', 'orders']","['MySQL', 'query', 'optimize']"
+Healthcare,research_treatment_options,My mother has been diagnosed with Alzheimer's disease. Can you provide information on the latest treatment options and clinical trials?,[],"[""Alzheimer's disease""]","['treatment options', 'clinical trials']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"I am Emily Chen, my social security number is 123-45-6789, and I want to know my account balance for my savings account.","['Emily Chen', '123-45-6789']",['savings account'],['account balance']
+Software Engineering,debug_code,"My name is David Lee, and I am trying to debug my Python code using the Flask API. I am getting a 404 error on the /users endpoint.",['David Lee'],"['Flask API', '/users endpoint']","['Python code', '404 error']"
+Healthcare,check_insurance_coverage,"I am Michael Brown, and I have a Blue Cross insurance plan. Does my plan cover treatment for diabetes?",['Michael Brown'],"['Blue Cross insurance plan', 'diabetes']","['treatment', 'insurance plan']"
+Finance,apply_for_loan,"My name is Sophia Patel, and I want to apply for a mortgage loan of $500,000. What are the requirements?",['Sophia Patel'],"['$500,000']","['mortgage loan', 'requirements']"
+Software Engineering,optimize_database,"I am working on a project using MySQL database, and I want to optimize the queries for better performance. Can you help me with indexing?",[],['MySQL database'],"['optimize queries', 'indexing', 'performance']"
+Healthcare,check_vaccine_availability,"My name is Olivia Kim, and I want to know if the COVID-19 vaccine is available at my local hospital.",['Olivia Kim'],['COVID-19 vaccine'],"['local hospital', 'vaccine availability']"
+Finance,check_credit_score,"I am Daniel White, and my social security number is 987-65-4321. Can you tell me my current credit score?","['Daniel White', '987-65-4321']",[],['credit score']
+Software Engineering,fix_compiler_error,"I am using the GCC compiler, and I am getting an error message saying 'undefined reference to main'. Can you help me fix this issue?",[],['GCC compiler'],"['undefined reference to main', 'compiler error']"
+Healthcare,check_medical_test_results,"My name is Ava Lee, and I recently had a blood test. Can you tell me the results of my blood test?",['Ava Lee'],['blood test'],['test results']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,I am Jane Smith with SSN 123-45-6789. What is my current account balance at Bank of America?,"['Jane Smith', '123-45-6789']",['Bank of America'],['account balance']
+Software Engineering,debug_code_issue,My name is David Lee and I am working on a project using Python 3.9. I have an issue with my API endpoint at https://example.com/api/v1/users.,['David Lee'],['https://example.com/api/v1/users'],"['Python 3.9', 'API endpoint']"
+Healthcare,schedule_appointment,"I am 35 years old, have diabetes, and live at 123 Main St. Can I schedule an appointment with Dr. Smith at NYU Hospital?",['123 Main St'],['diabetes'],"['Dr. Smith', 'NYU Hospital', '35 years old']"
+Finance,transfer_funds,My name is Emily Chen and I want to transfer $1000 from my account 1234567890 to my friend's account 9876543210 at Wells Fargo.,['Emily Chen'],"['$1000', '1234567890', '9876543210']","['Wells Fargo', 'transfer funds']"
+Software Engineering,optimize_algorithm,I am working on a machine learning project using TensorFlow and have a dataset of 10000 images. Can you help me optimize my algorithm for better performance?,[],['TensorFlow'],"['machine learning', '10000 images', 'algorithm']"
+Healthcare,check_insurance_coverage,My name is Michael Brown and I have Blue Cross Blue Shield insurance. Does my plan cover treatment for cancer?,['Michael Brown'],['cancer'],"['Blue Cross Blue Shield', 'insurance coverage']"
+Finance,apply_for_loan,"I am 28 years old, have a credit score of 750, and an annual income of $50000. Can I apply for a $20000 loan at 6% interest rate?",[],"['$20000', '6%']","['28 years old', 'credit score 750', '$50000 annual income']"
+Software Engineering,fix_database_issue,My company uses MySQL database and we are experiencing issues with our database schema. Can you help us fix the issue?,[],['MySQL'],"['database schema', 'database issue']"
+Healthcare,check_vaccination_status,I am Olivia Davis and I want to know if I have received the COVID-19 vaccine. Can you check my vaccination status?,['Olivia Davis'],['COVID-19 vaccine'],['vaccination status']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"Hi, my SSN is 123-45-6789 and I have an account at Bank of America. What is my current balance?",['123-45-6789'],['Bank of America'],['current balance']
+Software Engineering,debug_code,My name is Jane and I am using Python 3.9. I have a bug in my code that uses the requests library. Can you help me fix it?,['Jane'],"['Python 3.9', 'requests library']",['bug in my code']
+Healthcare,check_treatment_options,I have diabetes and live at 123 Main St. Can I get treatment options for my condition?,['123 Main St'],['diabetes'],['treatment options']
+Finance,apply_for_loan,My name is Bob and I have a credit score of 750. I want to apply for a mortgage loan. What are the requirements?,['Bob'],['credit score of 750'],"['mortgage loan', 'requirements']"
+Software Engineering,optimize_code,I am using Java 11 and have a loop that is taking too long to execute. Can you help me optimize it?,[],['Java 11'],"['loop', 'optimize']"
+Healthcare,check_insurance_coverage,My name is Alice and I have Blue Cross Blue Shield insurance. Does my plan cover dental care?,['Alice'],['Blue Cross Blue Shield'],['dental care']
+Finance,check_investment_options,"I have $10,000 to invest and live in New York. What are my options?",['New York'],"['$10,000']",['investment options']
+Software Engineering,troubleshoot_api,I am using the GitHub API and getting a 404 error. Can you help me troubleshoot?,[],['GitHub API'],"['404 error', 'troubleshoot']"
+Healthcare,check_medical_history,My name is Mike and I have a history of heart disease. Can I get a check-up?,['Mike'],['heart disease'],['check-up']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,account_balance_inquiry,My social security number is 123-45-6789. What is my account balance for my savings account 9876?,['123-45-6789'],['savings account 9876'],['account balance']
+Software Engineering,api_endpoint_lookup,I am working on a project for client Jane Smith. I need to find the API endpoint for user authentication in the GitHub API.,['Jane Smith'],"['GitHub API', 'user authentication']",['API endpoint']
+Healthcare,disease_risk_assessment,My name is Emily Johnson. I am 35 years old and have a family history of diabetes. What are my chances of developing type 2 diabetes?,['Emily Johnson'],"['diabetes', 'type 2 diabetes']","['family history', '35 years old']"
+Finance,investment_advice,"I have $100,000 to invest. What are the best investment options for a moderate risk tolerance?",[],"['$100,000', 'moderate risk tolerance']",['investment options']
+Software Engineering,code_completion,I am writing a Python script for client Bob Brown. I need help completing the code for a function to sort a list of integers.,['Bob Brown'],"['Python script', 'sort a list of integers']",['function']
+Healthcare,symptom_checker,My name is Michael Davis. I have been experiencing headaches and fatigue. What could be the cause of my symptoms?,['Michael Davis'],"['headaches', 'fatigue']",[]
+Finance,credit_score_check,My social security number is 987-65-4321. What is my current credit score?,['987-65-4321'],[],['credit score']
+Software Engineering,bug_fixing,I am working on a project for company ABC Corporation. I need help fixing a bug in my Java code that is causing a null pointer exception.,['ABC Corporation'],"['Java code', 'null pointer exception']",['bug']
+Healthcare,medication_side_effects,My name is Sarah Lee. I am taking medication for high blood pressure. What are the possible side effects of my medication?,['Sarah Lee'],['high blood pressure'],"['medication', 'side effects']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,My SSN is 123-45-6789. I have an account at Bank of America. What is my current balance?,['123-45-6789'],['Bank of America'],['current balance']
+Software Engineering,fix_bug,My name is Jane Smith. I am using Python 3.9 and get an error with the requests library. How do I fix the SSL verification issue?,['Jane Smith'],"['Python 3.9', 'requests library']",['SSL verification issue']
+Healthcare,diagnose_symptoms,I live at 123 Main St. I have been experiencing fever and headache for 3 days. What could be the cause?,['123 Main St'],"['fever', 'headache']",['3 days']
+Finance,apply_for_loan,My name is Bob Johnson. I have a credit score of 750 and want to apply for a mortgage. What are the requirements?,['Bob Johnson'],['credit score of 750'],"['mortgage', 'requirements']"
+Software Engineering,optimize_code,My email is john.doe@example.com. I am using Java 11 and want to optimize my code for better performance. Can you help me?,['john.doe@example.com'],['Java 11'],['better performance']
+Healthcare,find_doctor,I live in New York. I have diabetes and need to find a doctor who specializes in endocrinology. Can you recommend one?,['New York'],['diabetes'],['endocrinology']
+Finance,check_stock_price,My name is Alice Brown. I have invested in Apple stocks. What is the current price?,['Alice Brown'],['Apple stocks'],['current price']
+Software Engineering,learn_new_skill,My name is Mike Davis. I am a beginner in machine learning and want to learn TensorFlow. What resources are available?,['Mike Davis'],"['machine learning', 'TensorFlow']","['beginner', 'resources']"
+Healthcare,understand_medical_condition,My name is Emily Chen. I have been diagnosed with hypertension. What are the symptoms and treatment options?,['Emily Chen'],['hypertension'],"['symptoms', 'treatment options']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,My SSN is 123-45-6789. I have an account at Bank of America. What is my current balance?,['123-45-6789'],[],"['Bank of America', 'current balance']"
+Software Engineering,debug_code_issue,My name is Jane Smith. I am using Python 3.9. I have an issue with my API endpoint /users. It is returning a 500 error.,['Jane Smith'],['/users'],"['Python 3.9', '500 error']"
+Healthcare,check_disease_risk,I am a 35-year-old male with a family history of diabetes. What is my risk of developing diabetes?,[],['diabetes'],"['35-year-old male', 'family history']"
+Finance,check_loan_eligibility,"My address is 123 Main St. I have a credit score of 750. Can I get a loan for $10,000?",['123 Main St'],"['$10,000']",['credit score of 750']
+Software Engineering,optimize_code_performance,I am using a MySQL database. My query is taking 10 seconds to execute. How can I optimize it?,[],['MySQL'],['10 seconds to execute']
+Healthcare,check_medication_side_effects,I am taking Lipitor for high cholesterol. What are the possible side effects?,[],"['Lipitor', 'high cholesterol']",['possible side effects']
+Finance,check_investment_return,"I invested $5,000 in a mutual fund. What is my expected return?",[],"['$5,000']","['mutual fund', 'expected return']"
+Software Engineering,debug_algorithm_issue,I am using a recursive algorithm to solve a problem. It is causing a stack overflow error.,[],[],"['recursive algorithm', 'stack overflow error']"
+Healthcare,check_treatment_options,I have been diagnosed with cancer. What are my treatment options?,[],['cancer'],['treatment options']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,transfer_funds,"I, Jane Smith, want to transfer $1000 from my account 1234567890 to my friend's account 9876543210.",['Jane Smith'],['$1000'],['transfer funds']
+Software Engineering,debug_code,"My name is Bob Johnson, and I'm having trouble with my Python script. The error message is 'TypeError: cannot concatenate str and int objects'.",['Bob Johnson'],['TypeError: cannot concatenate str and int objects'],['Python script']
+Healthcare,diagnose_symptoms,"My patient, Emily Chen, has a fever of 102°F and is experiencing headaches. What could be the cause?",['Emily Chen'],"['fever of 102°F', 'headaches']",['diagnose symptoms']
+Finance,apply_for_loan,"I, Michael Brown, want to apply for a mortgage loan of $500,000. My annual income is $150,000.",['Michael Brown'],"['$500,000', '$150,000']",['apply for mortgage loan']
+Software Engineering,optimize_database,"My company, ABC Corp, uses a MySQL database. We want to optimize the query 'SELECT * FROM customers WHERE country='USA''.",['ABC Corp'],"['MySQL database', ""SELECT * FROM customers WHERE country='USA'""]",['optimize database query']
+Healthcare,recommend_treatment,"My patient, David Lee, has been diagnosed with diabetes. What are the best treatment options?",['David Lee'],['diabetes'],['treatment options']
+Finance,manage_investments,"I, Sophia Patel, have invested $10,000 in the stock market. What are the best strategies to maximize my returns?",['Sophia Patel'],"['$10,000']","['manage investments', 'stock market']"
+Software Engineering,fix_bug,"My team, at DEF Inc, is experiencing issues with our Java application. The error log shows 'NullPointerException at line 123'.",['DEF Inc'],['NullPointerException at line 123'],"['Java application', 'fix bug']"
+Healthcare,track_vaccinations,"My name is Olivia Kim, and I want to track my vaccination schedule. I have already received the flu shot.",['Olivia Kim'],['flu shot'],['track vaccination schedule']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"Hi, my name is Emily and my account number is 1234567890. What is my current balance?","['Emily', '1234567890']",[],['current balance']
+Software Engineering,fix_api_error,I am trying to use the Google Maps API but I keep getting an error. My API key is 1234567890 and I am using Python.,['1234567890'],['Google Maps API'],"['Python', 'error']"
+Healthcare,book_appointment,My name is David and I need to schedule an appointment with Dr. Smith. I have diabetes and I am taking Metformin.,"['David', 'Dr. Smith']",['diabetes'],"['Metformin', 'appointment']"
+Finance,transfer_money,I want to transfer $1000 from my account 1234567890 to my friend's account 9876543210.,"['1234567890', '9876543210']",['$1000'],[]
+Software Engineering,debug_code,I am trying to debug my code but I keep getting a syntax error. My code is written in Java and I am using Eclipse.,[],[],"['Java', 'Eclipse', 'syntax error']"
+Healthcare,check_insurance_coverage,My name is Sarah and I have Blue Cross Blue Shield insurance. Does my plan cover vaccinations?,['Sarah'],['Blue Cross Blue Shield'],['vaccinations']
+Finance,check_investment_performance,I have invested in the stock market and I want to know how my portfolio is performing. My portfolio includes Apple and Google stocks.,[],"['Apple', 'Google']","['stock market', 'portfolio']"
+Software Engineering,optimize_algorithm,I am trying to optimize my algorithm but it is running slowly. My algorithm is written in C++ and I am using a recursive approach.,[],[],"['C++', 'recursive approach']"
+Healthcare,check_medical_history,My name is Michael and I have a history of heart disease. Can I take aspirin?,['Michael'],['heart disease'],['aspirin']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,I am Jane Smith with SSN 123-45-6789. What is my current checking account balance at Bank of America?,"['Jane Smith', '123-45-6789']",[],"['checking account balance', 'Bank of America']"
+Software Engineering,debug_code,My name is Bob and I am working on a project with API endpoint https://example.com/users. I am getting a 404 error when trying to fetch user data.,['Bob'],['https://example.com/users'],"['404 error', 'fetch user data']"
+Healthcare,diagnose_symptoms,I have a fever of 102 degrees and a cough. Can I have COVID-19?,[],"['fever', 'cough']",['COVID-19']
+Finance,apply_for_loan,My address is 123 Main St and I want to apply for a $10000 loan at 5% interest.,['123 Main St'],"['$10000', '5% interest']",['loan application']
+Software Engineering,optimize_code,I am using Python 3.9 and want to improve the performance of my machine learning model.,[],['Python 3.9'],"['machine learning model', 'performance improvement']"
+Healthcare,find_doctor,I am looking for a doctor who specializes in cardiology in New York City.,[],['cardiology'],"['New York City', 'doctor search']"
+Finance,check_credit_score,My SSN is 987-65-4321 and I want to check my credit score.,['987-65-4321'],[],['credit score']
+Software Engineering,fix_bug,I am getting a NullPointerException when trying to compile my Java code.,[],[],"['NullPointerException', 'Java code', 'compile']"
+Healthcare,track_medication,My name is Alice and I take medication for diabetes. Can I track my medication schedule?,['Alice'],['diabetes'],['medication schedule']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"Hello, my social security number is 123-45-6789 and my account number is 9876. What is my current balance?",['123-45-6789'],['9876'],['current balance']
+Software Engineering,fix_api_error,My name is Emily and I am trying to use the GitHub API. I am getting a 404 error when trying to access https://api.github.com/repos/octocat/Hello-World.,['Emily'],['https://api.github.com/repos/octocat/Hello-World'],"['404 error', 'GitHub API']"
+Healthcare,schedule_appointment,My name is David and I need to schedule an appointment with Dr. Smith. My phone number is 555-1234 and my insurance is Blue Cross.,"['David', '555-1234']","['Dr. Smith', 'Blue Cross']",['schedule an appointment']
+Finance,transfer_funds,I want to transfer $1000 from my checking account to my savings account. My account numbers are 1234 and 5678.,[],"['$1000', '1234', '5678']","['transfer funds', 'checking account', 'savings account']"
+Software Engineering,debug_code,My name is Michael and I am trying to debug my Python code. I am getting a syntax error on line 10 of my script.,['Michael'],"['line 10', 'Python']","['debug code', 'syntax error']"
+Healthcare,check_insurance_coverage,My name is Sarah and I have United Healthcare insurance. I want to know if my policy covers diabetes treatment.,['Sarah'],"['United Healthcare', 'diabetes']",['insurance coverage']
+Finance,apply_for_loan,"I want to apply for a mortgage loan of $200,000. My credit score is 750 and my income is $100,000.",[],"['$200,000', '750', '$100,000']","['apply for loan', 'mortgage']"
+Software Engineering,optimize_performance,My company's website is running slow. We use Apache server and MySQL database. Can you help me optimize the performance?,[],"['Apache', 'MySQL']","['optimize performance', 'website']"
+Healthcare,check_vaccine_availability,My name is James and I want to know if the COVID-19 vaccine is available at my local hospital. My phone number is 555-5678.,"['James', '555-5678']",['COVID-19 vaccine'],"['vaccine availability', 'local hospital']"
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,check_account_balance,"I'm Emily, my account number is 1234567890, and I want to know my current balance.","['Emily', '1234567890']",[],['current balance']
+Software Engineering,debug_code,"My name is David, and I'm having issues with my Python code using the requests library to connect to https://api.example.com/users.",['David'],"['requests library', 'https://api.example.com/users']","['Python code', 'connect']"
+Healthcare,schedule_appointment,"I need to schedule an appointment with Dr. Smith for my daughter, who has diabetes, at 123 Main St.","['Dr. Smith', '123 Main St']",['diabetes'],['schedule appointment']
+Finance,transfer_funds,Transfer $1000 from my account 1234567890 to my friend's account 9876543210.,"['1234567890', '9876543210']",['$1000'],['transfer funds']
+Software Engineering,optimize_database,Optimize the database schema for my e-commerce application using MySQL and the InnoDB storage engine.,[],"['MySQL', 'InnoDB storage engine']","['optimize database schema', 'e-commerce application']"
+Healthcare,check_insurance_coverage,"I'm Michael, and I have Blue Cross Blue Shield insurance. Does it cover my medication, Albuterol, for asthma?",['Michael'],"['Blue Cross Blue Shield', 'asthma']","['Albuterol', 'insurance coverage']"
+Finance,apply_for_loan,"I'm Sarah, and I want to apply for a $50000 loan with a 5-year term and 6% interest rate.",['Sarah'],"['$50000', '5-year term', '6% interest rate']",['apply for loan']
+Software Engineering,deploy_application,Deploy my web application using Docker and Kubernetes on Amazon Web Services.,[],"['Docker', 'Kubernetes', 'Amazon Web Services']",['deploy web application']
+Healthcare,check_treatment_options,"My name is Olivia, and I have been diagnosed with cancer. What are my treatment options?",['Olivia'],['cancer'],['treatment options']
+Healthcare,check_medication_interaction,My name is John Doe. I have asthma and take Albuterol. Can I drink coffee?,['John Doe'],['asthma'],"['Albuterol', 'coffee']"
+Finance,account_balance_inquiry,I am Emily Chen with SSN 123-45-6789. What is my current account balance?,"['Emily Chen', '123-45-6789']",[],['account balance']
+Software Engineering,debug_code_issue,My name is David Lee and I am working on a project using Python 3.9. I have an issue with my API endpoint /users/{id}. Can you help me?,['David Lee'],['/users/{id}'],"['Python 3.9', 'API endpoint']"
+Healthcare,disease_risk_assessment,I am a 35-year-old male with a family history of diabetes. What are my chances of developing type 2 diabetes?,[],['diabetes'],"['35-year-old male', 'family history']"
+Finance,loan_application,"My address is 123 Main St. I want to apply for a $200,000 mortgage. What are the interest rates?",['123 Main St'],"['$200,000']","['mortgage', 'interest rates']"
+Software Engineering,optimize_algorithm,"I am using the QuickSort algorithm to sort a list of 10,000 elements. How can I improve its performance?",[],['QuickSort'],"['10,000 elements', 'performance']"
+Healthcare,symptom_diagnosis,I have a fever of 102°F and a headache. What could be the cause of my symptoms?,[],"['fever', 'headache']",['symptoms']
+Finance,investment_recommendation,"I have $10,000 to invest and I am looking for a low-risk investment. What are my options?",[],"['$10,000']",['low-risk investment']
+Software Engineering,data_structure_choice,I need to store a large amount of data in a database. Should I use a hash table or a binary search tree?,[],"['hash table', 'binary search tree']","['large amount of data', 'database']"
+Healthcare,medication_side_effects,I am taking Aspirin for my arthritis. What are the potential side effects of this medication?,[],"['Aspirin', 'arthritis']",['side effects']
