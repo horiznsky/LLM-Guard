@@ -3,17 +3,20 @@ from typing import List
 from openai import OpenAI
 from groq import Groq
 from interfaces import PolicyEvaluator, QueryState, TokenMapping
-from config import GROQ_API_KEY
+from config import GROQ_API_KEY, RUNPOD_OLLAMA_URL
 
 class LLMPolicyEvaluator(PolicyEvaluator):
-    # Defaulting to your requested local 3B model
-    def __init__(self, model_name="qwen2.5:3b"):
+    # Recommend using qwen2.5:7b for strict policy logic
+    def __init__(self, model_name="qwen2.5:7b"):
         self.model_name = model_name
-        self.is_local = ":" in model_name or "qwen" in model_name.lower()
+        self.is_runpod = True
 
-        if self.is_local:
-            print(f"🔌 Policy Evaluator: Initialized LOCAL model ({self.model_name})")
-            self.client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
+        if self.is_runpod:
+            print(f"🛡️ Policy Evaluator: Initialized RUNPOD ({self.model_name})")
+            self.client = OpenAI(
+                base_url=RUNPOD_OLLAMA_URL, # Uses the proxy URL from config.py
+                api_key="runpod_ollama"     # Dummy key, required by library
+            )
         else:
             print(f"☁️ Policy Evaluator: Initialized CLOUD API ({self.model_name})")
             self.client = Groq(api_key=GROQ_API_KEY)
@@ -22,18 +25,23 @@ class LLMPolicyEvaluator(PolicyEvaluator):
         if not state.extracted_entities:
             return []
 
-        # Extract just the string tokens for the prompt
-        entities_json = json.dumps([e['token'] for e in state.extracted_entities])
+        # Pass both token and label to the LLM so it knows exactly what the entity represents
+        entities_for_prompt = [{"token": e['token'], "label": e['label']} for e in state.extracted_entities]
+        entities_json = json.dumps(entities_for_prompt)
         
+        # STRONGER PROMPT: Addressed the high "Undermasking Rate" (FN)
         prompt = f"""
-        Query: {state.raw_query}
-        Intent: {state.intent}
+        Query: '{state.raw_query}'
+        Intent: '{state.intent}'
         Extracted Entities: {entities_json}
         
-        Evaluate each entity against the intent. Classify the action required for privacy:
-        - "drop": Highly sensitive, not needed for the intent. Remove entirely.
-        - "abstract": Sensitive, but the category is needed for context. Replace with label (e.g., Paris -> [LOCATION]).
-        - "keep": Core to the task (T_core). If removed, the intent fails.
+        Evaluate each entity against the intent. You are a strict privacy policy engine applying the Rule of Least Privilege.
+        Mask everything unless it mathematically breaks the task.
+        
+        Classify the action required for privacy:
+        - "drop": Highly sensitive (Names, SSNs, exact addresses, IDs). Not needed to answer the intent. Remove entirely.
+        - "abstract": Sensitive, but the category is needed for context. Replace with the label in brackets (e.g., Paris -> [LOCATION], 500mg -> [DOSAGE]).
+        - "keep": Core to the task (T_core). ONLY use this if the token is the explicit target of the user's functional request (e.g., "account balance" in "check_account_balance"). NEVER keep PII/PHI.
         
         Output valid JSON with a single key "mappings", containing a list of objects with "original_token", "action", and "replacement_token".
         If dropping, replacement_token is "". If keeping, replacement_token is the original token. If abstracting, use the label in brackets.
@@ -42,7 +50,7 @@ class LLMPolicyEvaluator(PolicyEvaluator):
         try:
             response = self.client.chat.completions.create(
                 messages=[
-                    {"role": "system", "content": "You are a strict privacy policy engine. Output valid JSON only."},
+                    {"role": "system", "content": "You are a strict zero-trust privacy policy engine. Output valid JSON only."},
                     {"role": "user", "content": prompt}
                 ],
                 model=self.model_name,
@@ -52,17 +60,34 @@ class LLMPolicyEvaluator(PolicyEvaluator):
 
             result = json.loads(response.choices[0].message.content)
             mappings = []
-            
-            # Match back to the original labels from GLiNER
+            # Match back to the original labels AND spans from GLiNER extraction
             for mapped_item in result.get("mappings", []):
-                original = mapped_item["original_token"]
-                label = next((e["label"] for e in state.extracted_entities if e["token"] == original), "UNKNOWN")
+                # Use .get() with fallbacks in case the 3B model forgets a key
+                original = mapped_item.get("original_token", "")
+                if not original:
+                    continue # Skip if the LLM hallucinated an empty item
+                
+                label = "UNKNOWN"
+                start = -1
+                end = -1
+                
+                # Find the corresponding entity to grab its span
+                for e in state.extracted_entities:
+                    if e["token"] == original:
+                        label = e.get("label", "UNKNOWN")
+                        start = e.get("start", -1)
+                        end = e.get("end", -1)
+                        break
                 
                 mappings.append(TokenMapping(
                     original_token=original,
-                    replacement_token=mapped_item["replacement_token"],
+                    # Safely default to "" if missing
+                    replacement_token=mapped_item.get("replacement_token", ""),
                     label=label,
-                    action=mapped_item["action"]
+                    # Safely default to "keep" to prevent accidental data loss if it bugs out
+                    action=mapped_item.get("action", "keep").lower(), 
+                    start=start,
+                    end=end
                 ))
             return mappings
             

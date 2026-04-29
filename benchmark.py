@@ -158,8 +158,6 @@ def run_benchmark(csv_path: str, num_samples: int = 100):
     print("="*50)
 
 if __name__ == "__main__":
-    # Point this to your actual CSV file
     DATASET_PATH = "btp_privacy_benchmark_1000 - btp_privacy_benchmark_1000.csv.csv"
     
-    # Run a small batch first (e.g., 20) to ensure everything works before doing all 1000
     run_benchmark(DATASET_PATH, num_samples=30)

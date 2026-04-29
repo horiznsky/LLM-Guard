@@ -3,21 +3,21 @@ from openai import OpenAI
 from groq import Groq
 from typing import List
 from interfaces import DomainClassifier, IntentClassifier, LabelGenerator, QueryState
-from config import GROQ_API_KEY
+from config import GROQ_API_KEY, RUNPOD_OLLAMA_URL
 
 class FastRoutingClassifier(DomainClassifier, IntentClassifier, LabelGenerator):
-    # Defaulting to your requested local 3B model
-    def __init__(self, model_name="qwen2.5:3b"):
+    # Recommend using llama3.1:8b for routing
+    def __init__(self, model_name="llama3.1:8b"):
         self.model_name = model_name
         
-        # Auto-detect if we should use local Ollama or cloud API
-        self.is_local = ":" in model_name or "qwen" in model_name.lower()
+        # Toggle to True to use your RunPod models
+        self.is_runpod = True
 
-        if self.is_local:
-            print(f"🔌 Routing Classifier: Initialized LOCAL model ({self.model_name})")
+        if self.is_runpod:
+            print(f"🚀 Routing Classifier: Initialized RUNPOD ({self.model_name})")
             self.client = OpenAI(
-                base_url="http://localhost:11434/v1",
-                api_key="ollama" 
+                base_url=RUNPOD_OLLAMA_URL, # Uses the proxy URL from config.py
+                api_key="runpod_ollama"     # Dummy key, required by library
             )
         else:
             print(f"☁️ Routing Classifier: Initialized CLOUD API ({self.model_name})")
@@ -43,16 +43,17 @@ class FastRoutingClassifier(DomainClassifier, IntentClassifier, LabelGenerator):
         """
         return self._call_json(prompt).get("intent", "unknown_task")
     
-    def process_labels(self, state: QueryState) -> List[str]:
+    def process_labels(self, state: QueryState) -> dict:
         prompt = f"""
         Query: '{state.raw_query}'
-        What entity labels are present in this text? 
-        Output a JSON object with a key 'labels' containing a list of strings.
-        Include standard categories like: "PERSON", "AGE", "ADDRESS", "ACCOUNT_NUMBER", "DISEASE", "MEDICATION", "MONEY", "CREDIT_SCORE", "API_KEY", "SYMPTOM".
-        Add any other specific labels relevant to the text.
+        What sensitive entity categories are present in this text? 
+        Output a JSON object with a key 'labels' containing a dictionary mapping label names to brief descriptions.
+        Include standard categories if present.
+        Example: {{"labels": {{"PERSON": "Names of individuals", "AGE": "A person's age in years", "DISEASE": "Medical conditions or symptoms"}}}}
         """
-        return self._call_json(prompt).get("labels", [])
-
+        # Returns a dict like {"PERSON": "...", "DISEASE": "..."}
+        return self._call_json(prompt).get("labels", {})
+    
     def _call_json(self, prompt: str) -> dict:
         try:
             response = self.client.chat.completions.create(
