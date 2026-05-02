@@ -1,0 +1,100 @@
+domain,intent,original_query,expected_S_drop,expected_S_abstract,expected_T_core
+Software Engineering,fix_compile_error,I am getting a compile error when trying to compile my Java code using the Maven build tool. What could be the cause?,[],[],"['Java code', 'compile error', 'cause', 'Maven build tool']"
+Software Engineering,optimize_code,How can I improve the performance of my Python script that uses the pandas library?,[],[],"['Python script', 'performance', 'pandas']"
+Finance,Currency exchange,Convert 50000 JPY to USD using account 0098765432.,['0098765432'],[],"['convert', '50000', 'JPY', 'USD']"
+Finance,Currency conversion,"How many Euros can I get for $10,000 USD via my Wells Fargo account?",[],['Wells Fargo'],"['Euros', 'USD', '10,000']"
+Healthcare,diagnose_symptoms,"My patient, Emily Chen, has a fever of 102°F and is experiencing headaches. What could be the cause?",['Emily Chen'],[],"['fever of 102°F', 'headaches']"
+Law,Data privacy regulation advice,Does Acme Corp comply with GDPR regarding user data for email user@example.com?,[],[],"['Acme Corp', 'user@example.com', 'GDPR', 'compliance']"
+Software Engineering,fix_error,"I'm getting an error with my Java code. My name is Michael, and I'm trying to connect to a PostgreSQL database using the JDBC driver. The error message is: org.postgresql.util.PSQLException: Connection refused.",['Michael'],[],"['Java code', 'PostgreSQL database', 'JDBC driver', 'org.postgresql.util.PSQLException: Connection refused']"
+Law,Intellectual property query,"Can I trademark my software, CodeMaster Pro, developed by Sarah Jenkins?",['CodeMaster Pro'],['Sarah Jenkins'],[]
+Software Engineering,fix_bug,"My team, at DEF Inc, is experiencing issues with our Java application. The error log shows 'NullPointerException at line 123'.",[],['DEF Inc'],"['Java application', 'NullPointerException at line 123']"
+Finance,Account access issue,My account registered under 555-0199 is locked due to multiple failed login attempts.,['555-0199'],[],"['account', 'locked', 'login attempts']"
+Healthcare,check_insurance_coverage,I have diabetes and I want to know if my insurance plan covers the cost of insulin.,[],[],"['diabetes', 'insulin', 'insurance plan', 'covers the cost']"
+Healthcare,Release of information,Please forward my chart for the past year to Dr. Thompson at 789 Medical Plaza.,[],"['Dr. Thompson', '789 Medical Plaza']","['forward my chart', 'past year']"
+Finance,check_account_balance,My social security number is 123456789 and I have an account at Bank of America. What is my current balance?,['123456789'],[],['Bank of America']
+Law,Real estate closing query,Is the deed for 555 Market St signed by Mark Ruffalo valid?,[],"['555 Market St', 'Mark Ruffalo']",['deed']
+Healthcare,book_appointment,I am Jane Doe and I need to schedule an appointment with Dr. Smith for my diabetes check-up.,['Jane Doe'],['diabetes'],"['Dr. Smith', 'appointment']"
+Software Engineering,debug_code,My name is Michael and I am trying to debug my Python code. I am getting a syntax error on line 10 of my script.,['Michael'],[],"['debug code', 'syntax error', 'Python', 'line 10']"
+Law,Divorce proceedings query,Can Sarah Jenkins take my pension plan from ABC Corp in our divorce?,"['Sarah Jenkins', 'ABC Corp']",[],"['pension plan', 'divorce']"
+Software Engineering,debug_code,"My name is Michael Brown, and I'm trying to compile my code. I'm getting a syntax error on line 10.",['Michael Brown'],[],"['syntax error', 'line 10']"
+Finance,Tax document request,Can you email my 1099 form for the 2022 tax year to user@example.com?,['user@example.com'],"['1099', '2022']","['Can', 'you', 'email', 'my', 'form', 'for', 'the', 'tax', 'year', 'to']"
+Finance,Checking account balance,What is the current balance of my Chase account ending in 4492?,[],['Chase'],"['current balance', 'account', '4492']"
+Software Engineering,debug_code_issue,"My name is David Lee, and I'm using Python 3.9. I'm getting an error when trying to connect to the MySQL database using the mysql-connector-python library. Can you help?",['David Lee'],[],"['Python 3.9', 'MySQL database', 'error', 'connect', 'mysql-connector-python']"
+Healthcare,check_symptoms,My phone number is 555-1234. I have been experiencing symptoms of COVID-19. What should I do?,['555-1234'],[],['COVID-19']
+Law,Contract breach query,Velocity Logistics failed to deliver my shipment on 11/02/2023. Can I sue for breach of contract?,[],"['Velocity Logistics', '11/02/2023']","['failed to deliver', 'shipment', 'sue', 'breach of contract']"
+Finance,transfer_funds,My bank account number is 0123456789. I want to transfer $1000 to my friend's account at Wells Fargo.,['0123456789'],[],"['$1000', 'Wells Fargo', 'transfer funds']"
+Software Engineering,optimize_algorithm,I am working on a project using Java 11 and I need to optimize my sorting algorithm. Can you provide some tips?,[],[],"['Java 11', 'sorting algorithm', 'optimize']"
+Finance,check_account_balance,"Hello, my social security number is 123-45-6789 and my account number is 9876. What is my current balance?",['123-45-6789'],['9876'],['current balance']
+Finance,apply_for_loan,"My name is Michael and my annual income is $50,000. I want to apply for a mortgage. What are the requirements?",['Michael'],"['$50,000']","['apply for a mortgage', 'requirements']"
+Healthcare,check_insurance_coverage,My name is Michael Brown and I have a Blue Cross Blue Shield insurance plan. Does it cover my knee surgery?,['Michael Brown'],"['knee surgery', 'Blue Cross Blue Shield']","['insurance plan', 'coverage']"
+Healthcare,check_medical_test_results,"My name is Ava Lee, and I recently had a blood test. Can you tell me the results of my blood test?",['Ava Lee'],[],"['blood test', 'results']"
+Law,Criminal defense inquiry,"My son, Robert Brown, was arrested for DUI in Cook County. His case number is CC-998877.","['Robert Brown', 'CC-998877']",['Cook County'],"['arrested', 'DUI', 'case number']"
+Law,Traffic violation contest,"I, Clark Kent, was ticketed by Officer Luthor for speeding on Highway 101.",['Clark Kent'],"['Officer Luthor', 'Highway 101']","['I', 'ticketed', 'speeding']"
+Software Engineering,debug_code,My email is john.doe@example.com. I am using Python to build a web application. I am getting a syntax error on line 10. Can you help me?,['john.doe@example.com'],[],"['syntax error', 'web application', 'Python', 'line 10']"
+Software Engineering,fix_bug,I'm getting a NullPointerException in my C++ code using the Qt library. Can you help me fix it?,[],[],"['NullPointerException', 'C++ code', 'Qt library']"
+Finance,calculate_loan_eligibility,"I'm Jane Smith, living at 123 Main St. My annual income is $100,000 and I have a credit score of 750. Can I get a mortgage?","['Jane Smith', '123 Main St']",[],"['$100,000', '750', 'mortgage']"
+Law,Employment discrimination check,"Was I, Jennifer Lawrence, discriminated against at work due to my age?",['Jennifer Lawrence'],[],"['employment discrimination', 'age']"
+Healthcare,check_vaccination_schedule,"My child, Emily, is 5 years old. What vaccinations does she need to get?",['Emily'],['5 years old'],['vaccinations']
+Healthcare,check_disease_risk,I am a 35-year-old male with a family history of diabetes. What is my risk of developing diabetes?,[],[],"['35-year-old male', 'family history', 'diabetes']"
+Healthcare,check_treatment,I have diabetes and take Metformin. What are the possible side effects of this medication?,[],['diabetes'],"['Metformin', 'side effects', 'medication']"
+Software Engineering,troubleshoot_code,"I'm trying to fix a bug in my Python code, and I'm getting a TypeError on line 12. Can you help me?",[],[],"['Python', 'line 12', 'TypeError', 'bug']"
+Software Engineering,troubleshoot_api_issue,"My name is David, and I'm having trouble with the Google Maps API. I'm getting a 404 error when trying to access https://maps.googleapis.com/maps/api/place/textsearch/json?",['David'],[],"['Google Maps API', '404 error', 'https://maps.googleapis.com/maps/api/place/textsearch/json']"
+Healthcare,Requesting lab test results,"I am Alice Johnson, DOB 05/12/1985. Did my blood work results come back yet?",[],"['Alice Johnson', '05/12/1985']","['blood work', 'results']"
+Law,Contract law query,"I signed a contract with David Miller at 555-0199, but he hasn't delivered the goods.",['555-0199'],['David Miller'],"['contract', 'delivered', 'goods']"
+Law,Immigration law question,My visa application with USCIS receipt number WAC1234567890 for David Smith is delayed.,"['WAC1234567890', 'David Smith', 'receipt number']",[],[]
+Software Engineering,optimize_performance,My application is slow when querying the database. Can you help me optimize the performance of my SQL query?,[],[],"['database', 'SQL query', 'performance']"
+Healthcare,Billing inquiry,"Why was I charged $450 for my visit on Jan 5th at the Midtown Clinic, account #889900?",['889900'],"['[DATE]', '[LOCATION]']","['$450', 'charged', 'visit']"
+Finance,apply_loan,I am John Smith with SSN 123456789 and I want to apply for a loan of $50000.,"['John Smith', '123456789']",[],"['loan', 'apply', '$50000']"
+Software Engineering,debug_code_issue,"My name is Alex, and I'm using Python 3.9. I'm getting an error when trying to connect to the MySQL database using the mysql-connector-python library. Can you help me?",['Alex'],[],"['MySQL database', 'error', 'Python 3.9', 'mysql-connector-python']"
+Healthcare,diagnose_symptoms,I live at 123 Main St. I have been experiencing fever and headache for 3 days. What could be the cause?,['123 Main St'],[],"['fever', 'headache', '3 days']"
+Healthcare,symptom_checker,"My daughter, Emily, has a fever of 102°F and a sore throat. What could be the cause?",['Emily'],[],"['fever of 102°F', 'sore throat']"
+Healthcare,schedule_appointment,"I'm Jane Doe, and I need to schedule an appointment with Dr. Smith for my diabetes check-up.",['Jane Doe'],[],"['Dr. Smith', 'check-up', 'diabetes']"
+Software Engineering,fix_bug,I am getting a null pointer exception when trying to access a variable in my C++ code. Can you help me fix it?,[],[],"['null pointer exception', 'C++ code', 'variable access']"
+Software Engineering,debug_code,"My name is David, and I'm having issues with my Python code using the requests library to connect to https://api.example.com/users.",['David'],[],[]
+Software Engineering,learn_new_skill,My name is Mike Davis. I am a beginner in machine learning and want to learn TensorFlow. What resources are available?,['Mike Davis'],[],[]
+Finance,Loan payment inquiry,When is the next payment due for my mortgage loan #88822211?,['88822211'],[],"['mortgage loan', 'payment due']"
+Finance,Crypto wallet transfer,Transfer 0.5 BTC from my wallet 1A2B3C to Emily Carter's public key 4D5E6F.,"['1A2B3C', 'Emily Carter', '4D5E6F']","['[WALLET_ADDRESS]', '[PERSON]', '[PUBLIC_KEY]']","['BTC', 'transfer', 'wallet']"
+Healthcare,check_medical_history,My name is David and I have a medical history of heart disease. I would like to know if I am at risk for any other conditions.,['David'],[],['heart disease']
+Finance,credit_score_check,I am David and my social security number is 987-65-4321. Can you tell me my current credit score?,"['David', '987-65-4321']",[],[]
+Healthcare,check_insurance_coverage,I have a Blue Cross Blue Shield insurance plan and take medication for diabetes. Can I get a check-up at the hospital?,[],"['diabetes', 'Blue Cross Blue Shield']","['check-up', 'hospital', 'insurance plan']"
+Law,Medical malpractice inquiry,Dr. Alan Grant performed surgery on Kevin Costner that led to complications.,"['Dr. Alan Grant', 'Kevin Costner']","['physician', 'patient']","['surgery', 'complications']"
+Finance,Checking overdraft inquiry,Why was I charged an overdraft fee for account #887766 held by Jane Doe?,[],"['account #887766', 'Jane Doe']",['overdraft fee']
+Finance,Lost credit card,I lost my Mastercard ending in 9901 belonging to Jane Doe; please block it immediately.,[],[],"['9901', 'Jane Doe', 'block', 'lost card']"
+Law,Child custody mediation,"Mediation terms for custody of child Billy, age 8, with ex-partner Paul.","['Billy', 'Paul']",['8'],"['mediation', 'child custody']"
+Healthcare,check_symptoms,My date of birth is 1990-01-01. I have a fever and a cough. Do I have COVID-19?,['1990-01-01'],[],"['fever', 'cough', 'COVID-19']"
+Finance,Password reset for banking,My username is banking_fan99. I need to change my login credentials for the portal.,['banking_fan99'],[],"['username', 'change', 'login', 'credentials']"
+Finance,apply_for_loan,"I'm Emily, my SSN is 123-45-6789, and my annual income is $50,000. Can I get a mortgage?","['Emily', '123-45-6789']",[],"['mortgage', '$50,000']"
+Healthcare,check_insurance_coverage,"I am Michael Brown, and I have diabetes. Is my medication covered by my insurance?",['Michael Brown'],['diabetes'],"['medication', 'covered', 'insurance']"
+Healthcare,diagnose_symptoms,I am a 30-year-old female with a fever of 102 degrees and a cough. What could be the cause of my symptoms?,[],['30-year-old female'],"['fever of 102 degrees', 'cough', 'symptoms']"
+Healthcare,check_medical_test_results,"I'm Ethan, my patient ID is 456789, and I want to know the results of my recent blood test.","['Ethan', '456789']",[],['blood test']
+Healthcare,get_insurance_info,"My name is Ava, and I have a health insurance plan with Blue Cross Blue Shield. Can you tell me what's covered under my plan?",[],"['Ava', 'Blue Cross Blue Shield']","['health insurance plan', 'coverage info']"
+Finance,check_account_balance,"Hi, my SSN is 123-45-6789. What's my current balance in my checking account 0123456789?",['123-45-6789'],['0123456789'],['current balance']
+Finance,transfer_funds,My account number is 1234567890 and I want to transfer $100 to my friend's account at Chase Bank.,['1234567890'],[],"['transfer funds', '$100', 'Chase Bank']"
+Finance,apply_for_loan,"I want to apply for a mortgage loan of $200,000. What are the requirements?",[],"['$200,000']","['mortgage loan', 'requirements']"
+Healthcare,check_medication_side_effects,My name is Alice Williams and I am taking medication for high blood pressure. What are the common side effects?,['Alice Williams'],['high blood pressure'],['common side effects']
+Law,Traffic violation inquiry,"I received a speeding ticket in Houston, TX, with citation number 987654.",[],"['Houston, TX']","['987654', 'speeding ticket']"
+Healthcare,schedule_appointment,I am Emily Chen and I need to schedule an appointment with Dr. Smith for my diabetes check-up at 123 Main St.,['Emily Chen'],"['123 Main St', 'diabetes']","['schedule appointment', 'Dr. Smith']"
+Finance,check_account_balance,"Hello, I'm Sarah Taylor with account number 901234. What's my current account balance?",['Sarah Taylor'],[],"['account number 901234', 'check account balance']"
+Finance,transfer_funds,I want to transfer $1000 from my checking account to my savings account. My account number is 9876543210.,['9876543210'],[],"['$1000', 'checking account', 'savings account']"
+Finance,apply_for_loan,I want to apply for a $50000 loan with an interest rate of 6%. My SSN is 123-45-6789.,['123-45-6789'],"['$50000', '6%']",['loan application']
+Law,Power of attorney query,"I need to set up a Power of Attorney for my elderly father, Frank Wilson, in Texas.",['Frank Wilson'],[],"['Texas', 'Power of Attorney', 'father']"
+Healthcare,check_medication_side_effects,"I am taking medication for diabetes, and I want to know if it will interact with my blood pressure medication.",[],"['diabetes', 'blood pressure medication']",[]
+Finance,Fraud alert verification,I received a call from 555-0199 claiming to be from my bank regarding suspicious activity on my card.,['555-0199'],[],['suspicious activity']
+Finance,apply_for_loan,"My name is Michael and I want to apply for a $10,000 loan. What are the interest rates?",['Michael'],[],"['$10,000 loan', 'interest rates']"
+Software Engineering,optimize_database,"I am working on a project using MySQL database, and I want to optimize the queries for better performance. Can you help me with indexing?",[],[],"['MySQL database', 'optimize queries', 'indexing', 'performance']"
+Software Engineering,optimize_code,I'm using Java 11 and I want to optimize my code for a machine learning model. Can you help me with that?,[],[],"['Java 11', 'machine learning model', 'optimize code']"
+Law,Criminal defense request,Please represent me in the case against the State involving my arrest on January 1st.,[],['January 1st'],[]
+Healthcare,check_insurance_coverage,"My name is Sophia Rodriguez, I have a policy with Blue Cross Blue Shield, and I need to know if my policy covers a specific treatment for diabetes.",['Sophia Rodriguez'],"['diabetes', 'Blue Cross Blue Shield']","['policy', 'covers', 'treatment']"
+Healthcare,Confirm diagnosis,Can you explain the MRI results for Case #ABC-123 showing stage 2 localized cancer?,['Case #ABC-123'],[],"['MRI results', 'stage 2 localized cancer']"
+Healthcare,check_insurance_coverage,"Does my insurance plan, Blue Cross Blue Shield, cover treatment for diabetes?",[],"['diabetes', 'Blue Cross Blue Shield']","['insurance plan', 'cover', 'treatment']"
+Law,Tenant-landlord dispute,"My landlord, Susan Green, refused to fix the heater at 789 Pine Ave.",['Susan Green'],['789 Pine Ave'],[]
+Healthcare,check_vaccination_schedule,My child's name is Sarah Taylor and they are 2 years old. What vaccinations do they need?,['Sarah Taylor'],[],"['vaccinations', '2 years old']"
+Law,Traffic citation appeal,I received a speeding ticket in Chicago on June 30th with license plate ABC-123.,['ABC-123'],"['Chicago', 'June 30th']",[]
+Finance,check_account_balance,"Hi, I'm Michael, my account number is 987654321, and I want to know my current balance.",['Michael'],['987654321'],['balance']
+Software Engineering,improve_application_performance,My company is using the AWS API to host our web application. We are experiencing slow load times. Can you help us optimize our application?,[],[],"['AWS API', 'slow load times', 'web application', 'optimize']"
+Software Engineering,fix_bug_in_code,I am experiencing an issue with my Python code that uses the TensorFlow library. My GitHub username is githubuser and the repository name is myproject.,['githubuser'],['myproject'],"['Python', 'TensorFlow', 'issue']"
+Software Engineering,improve_performance,Our application uses a MySQL database and is built using Java 11. How can we improve the performance of our application?,[],[],"['application', 'performance', 'MySQL database', 'Java 11']"
+Finance,Credit card payment,Please pay my Visa card 4444-5555-6666-7777 from my savings account.,['4444-5555-6666-7777'],[],"['pay', 'Visa card', 'savings account']"
+Finance,Checking account balance,What is the current balance of my checking account ending in 8842?,[],[],"['8842', 'balance']"
+Finance,investment advice,"Based on my portfolio of 50k, should I buy more crypto, Michael?",['Michael'],['50k'],"['portfolio', 'crypto']"
+Law,Intellectual property query,"David Lee wants to register a trademark for his startup, InnovateNow, in Seattle.","['David Lee', 'InnovateNow']",['Seattle'],"['register', 'trademark', 'startup']"

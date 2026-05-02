@@ -2,12 +2,34 @@ import pandas as pd
 import ast
 import time
 from tqdm import tqdm
+from sentence_transformers import SentenceTransformer, util
 
 # Import your pipeline components from the files we created earlier
 from interfaces import QueryState
 from classifiers import FastRoutingClassifier
 from extractors import GlinerExtractor
 from policy import LLMPolicyEvaluator
+
+print("Loading Semantic Evaluation Model...")
+semantic_model = SentenceTransformer('all-mpnet-base-v2')
+
+# In benchmark.py
+def is_semantically_correct(expected: str, predicted: str, threshold=0.75) -> bool:
+    if not expected or not predicted:
+        return False
+        
+    # Clean snake_case into normal words for better semantic embeddings
+    exp_clean = expected.replace("_", " ")
+    pred_clean = predicted.replace("_", " ")
+    
+    if exp_clean in pred_clean or pred_clean in exp_clean:
+        return True
+        
+    emb_exp = semantic_model.encode(exp_clean, convert_to_tensor=True)
+    emb_pred = semantic_model.encode(pred_clean, convert_to_tensor=True)
+    
+    similarity = util.cos_sim(emb_exp, emb_pred).item()
+    return similarity >= threshold
 
 def safe_eval(val):
     """Safely convert string representation of lists from CSV into actual Python lists."""
@@ -90,12 +112,15 @@ def run_benchmark(csv_path: str, num_samples: int = 100):
         pred_domain = str(state.domain).strip().lower()
         pred_intent = str(state.intent).strip().lower()
         
-        if expected_domain in pred_domain or pred_domain in expected_domain:
+        if is_semantically_correct(expected_domain, pred_domain, threshold=0.80):
             results["domain_correct"] += 1
             
         # Intent matching can be fuzzy since LLMs might rephrase slightly
-        if expected_intent in pred_intent or pred_intent in expected_intent:
+        if is_semantically_correct(expected_intent, pred_intent, threshold=0.65):
             results["intent_correct"] += 1
+        else:
+            # ADD THIS DEBUG PRINT
+            print(f"\n[INTENT FAILED] Expected: '{expected_intent}' | Qwen Guessed: '{pred_intent}'")
 
         # --- 3. Evaluate Privacy Tokens (Overlap Matching instead of Strict) ---
         predicted_sensitive = []
@@ -158,6 +183,6 @@ def run_benchmark(csv_path: str, num_samples: int = 100):
     print("="*50)
 
 if __name__ == "__main__":
-    DATASET_PATH = "btp_privacy_benchmark_1000 - btp_privacy_benchmark_1000.csv.csv"
+    DATASET_PATH = "btp_privacy_benchmark_final.csv"
     
     run_benchmark(DATASET_PATH, num_samples=30)
