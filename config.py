@@ -8,3 +8,4 @@ GROQ_API_KEY = os.getenv("GROQ_API_KEY1")
 HF_TOKEN = os.getenv("HF_TOKEN")
 GOOGLE_API_KEY = os.getenv("GOOGLE_AI_API_KEY")
 # RUNPOD_OLLAMA_URL = os.getenv("RUNPOD_OLLAMA_URL")
+RUNPOD_OLLAMA_URL = "https://916pm3az2d1kco-11434.proxy.runpod.net/v1/"

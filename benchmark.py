@@ -1,188 +1,251 @@
 import pandas as pd
 import ast
-import time
+import json
+import re
+from datetime import datetime
+from dataclasses import asdict
 from tqdm import tqdm
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from sentence_transformers import SentenceTransformer, util
 
-# Import your pipeline components from the files we created earlier
+# Import pipeline components
 from interfaces import QueryState
 from classifiers import FastRoutingClassifier
 from extractors import GlinerExtractor
 from policy import LLMPolicyEvaluator
+from llm_clients import RunPodLLM  # Updated to use RunPod for Qwen
 
-print("Loading Semantic Evaluation Model...")
-semantic_model = SentenceTransformer('all-mpnet-base-v2')
+# ==========================================
+# 1. UTILITIES & SEMANTIC MODELS
+# ==========================================
 
-# In benchmark.py
-def is_semantically_correct(expected: str, predicted: str, threshold=0.75) -> bool:
-    if not expected or not predicted:
-        return False
-        
-    # Clean snake_case into normal words for better semantic embeddings
-    exp_clean = expected.replace("_", " ")
-    pred_clean = predicted.replace("_", " ")
+print("Loading MPNet Semantic Model for Metrics...")
+# semantic_model = SentenceTransformer('all-mpnet-base-v2')
+semantic_model = SentenceTransformer('all-mpnet-base-v2', device='cuda')
+
+def perfect_sanitize(raw_query: str, mappings: list) -> str:
+    """
+    Sanitizes a string using precise reverse-index slicing to prevent substring collision.
+    """
+    # Only process tokens that are actively changing the string
+    active_mappings = [m for m in mappings if m.action in ['drop', 'abstract', 'fake']]
     
-    if exp_clean in pred_clean or pred_clean in exp_clean:
-        return True
-        
-    emb_exp = semantic_model.encode(exp_clean, convert_to_tensor=True)
-    emb_pred = semantic_model.encode(pred_clean, convert_to_tensor=True)
-    
-    similarity = util.cos_sim(emb_exp, emb_pred).item()
-    return similarity >= threshold
+    if not active_mappings:
+        return raw_query
+
+    # Separate mappings with valid coordinates vs invalid ones (fallback)
+    valid_coords = [m for m in active_mappings if m.start != -1 and m.end != -1]
+    missing_coords = [m for m in active_mappings if m.start == -1 or m.end == -1]
+
+    sanitized = raw_query
+
+    # Phase 1: Reverse-Index Slicing (Prevents index drift)
+    valid_coords.sort(key=lambda x: x.start, reverse=True)
+    for m in valid_coords:
+        if sanitized[m.start:m.end] == m.original_token:
+            sanitized = sanitized[:m.start] + m.replacement_token + sanitized[m.end:]
+        else:
+            missing_coords.append(m)
+
+    # Phase 2: Fallback (Length-Sorted .replace)
+    if missing_coords:
+        missing_coords.sort(key=lambda x: len(x.original_token), reverse=True)
+        for m in missing_coords:
+            sanitized = sanitized.replace(m.original_token, m.replacement_token)
+
+    # Phase 3: Cleanup consecutive spaces
+    sanitized = re.sub(r'\s+', ' ', sanitized).strip()
+    return sanitized
+
+def save_query_state(state: QueryState, filepath: str = "query_states_log.jsonl", phase: str = "final"):
+    try:
+        state_dict = asdict(state)
+        log_entry = {
+            "timestamp": datetime.now().isoformat(),
+            "phase": phase,
+            "state": state_dict
+        }
+        with open(filepath, 'a', encoding='utf-8') as f:
+            f.write(json.dumps(log_entry) + '\n')
+    except Exception as e:
+        print(f"Failed to save state for Query ID {state.query_id}: {e}")
 
 def safe_eval(val):
-    """Safely convert string representation of lists from CSV into actual Python lists."""
-    if pd.isna(val):
-        return []
+    if pd.isna(val): return []
     try:
-        # Some rows might have malformed strings, clean them up
         val = str(val).replace('\r', '').replace('\n', '')
-        parsed = ast.literal_eval(val)
-        return [str(x).strip().lower() for x in parsed]
+        return [str(x).strip().lower() for x in ast.literal_eval(val)]
     except:
         return []
 
-def calculate_metrics(tp, fp, fn):
-    """Calculates standard NLP and Privacy metrics based on the B.Tech Final PDF."""
-    precision = tp / (tp + fp) if (tp + fp) > 0 else 0.0
-    recall = tp / (tp + fn) if (tp + fn) > 0 else 0.0
-    f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0.0
+def is_semantically_correct(expected: str, predicted: str, threshold=0.50) -> bool:
+    if not expected or not predicted: return False
+    exp_clean, pred_clean = expected.replace("_", " "), predicted.replace("_", " ")
+    if exp_clean in pred_clean or pred_clean in exp_clean: return True
     
-    # Overmasking: Proportion of our masked tokens that were actually safe (1 - Precision)
-    overmasking_rate = fp / (tp + fp) if (tp + fp) > 0 else 0.0
-    
-    # Undermasking: Proportion of actual sensitive tokens that we missed (1 - Recall)
-    undermasking_rate = fn / (tp + fn) if (tp + fn) > 0 else 0.0
-    
-    return precision, recall, f1, overmasking_rate, undermasking_rate
+    emb_exp = semantic_model.encode(exp_clean, convert_to_tensor=True)
+    emb_pred = semantic_model.encode(pred_clean, convert_to_tensor=True)
+    return util.cos_sim(emb_exp, emb_pred).item() >= threshold
 
-def run_benchmark(csv_path: str, num_samples: int = 100):
+# ==========================================
+# 2. THE PROCESSING WORKER
+# ==========================================
+
+def process_single_query(idx, row, router, extractor, policy, generator_llm):
+    """Executes the full gateway and generation pipeline."""
+    raw_query = str(row['original_query'])
+    state = QueryState(query_id=str(idx), raw_query=raw_query)
+    
+    expected_s_drop = safe_eval(row['expected_S_drop'])
+    expected_s_abs = safe_eval(row['expected_S_abstract'])
+    ground_truth_sensitive = set(expected_s_drop + expected_s_abs)
+    
+    metrics = {
+        "idx": idx, "query_tp": 0, "query_fp": 0, "query_fn": 0,
+        "domain_correct": 0, "intent_correct": 0,
+        "ips_score": 0.0, "aes_score": 0.0, "semantic_score": 0.0, "output_leakage": 0
+    }
+
+    try:
+        # --- A. GATEWAY PIPELINE ---
+        # state.domain = router.process_domain(state)
+        # state.intent = router.process_intent(state)
+        # state.potential_labels = router.process_labels(state)
+        router.process(state)
+        state.extracted_entities = extractor.process(state)
+        state.mappings = policy.process(state)
+        
+        # Build Sanitized Query using perfect_sanitize logic
+        state.sanitized_query = perfect_sanitize(state.raw_query, state.mappings)
+
+        # --- B. GENERATION PIPELINE ---
+        # 1. Generate Baseline Answer (RAW)
+        state.llm_raw_response = generator_llm.generate(state.raw_query)
+        
+        # 2. Generate Privacy Answer (SANITIZED)
+        state.llm_sanitized_response = generator_llm.generate(state.sanitized_query)
+        
+        # 3. Restore the sanitized response
+        final_text = state.llm_sanitized_response
+        # Sort mappings by length to prevent substring collision during restoration
+        sorted_mappings = sorted(state.mappings, key=lambda m: len(m.original_token), reverse=True)
+        for mapping in sorted_mappings:
+            if mapping.action in ['abstract', 'fake']:
+                rep_token = mapping.replacement_token if mapping.replacement_token else f"[{mapping.label.upper()}]"
+                if rep_token:
+                    final_text = final_text.replace(rep_token, mapping.original_token)
+        state.final_restored_response = final_text
+
+        # --- C. METRICS CALCULATION ---
+        # 1. Routing Metrics
+        if is_semantically_correct(str(row['domain']).lower(), str(state.domain).lower(), 0.80):
+            metrics["domain_correct"] = 1
+        if is_semantically_correct(str(row['intent']).lower(), str(state.intent).lower(), 0.50):
+            metrics["intent_correct"] = 1
+
+        # 2. Privacy Token Metrics
+        predicted_sensitive = [m.original_token.strip().lower() for m in state.mappings if m.action in ['drop', 'abstract', 'fake']]
+        unmatched_gt = list(ground_truth_sensitive)
+
+        for pred in predicted_sensitive:
+            matched = False
+            for gt in unmatched_gt:
+                if pred in gt or gt in pred:
+                    metrics["query_tp"] += 1
+                    unmatched_gt.remove(gt)
+                    matched = True
+                    break
+            if not matched: metrics["query_fp"] += 1
+        
+        metrics["query_fn"] = len(unmatched_gt)
+        
+        # 3. Advanced Embeddings Metrics
+        emb_raw_q = semantic_model.encode(state.raw_query, convert_to_tensor=True)
+        emb_san_q = semantic_model.encode(state.sanitized_query, convert_to_tensor=True)
+        emb_raw_resp = semantic_model.encode(state.llm_raw_response, convert_to_tensor=True)
+        emb_restored = semantic_model.encode(state.final_restored_response, convert_to_tensor=True)
+
+        metrics["ips_score"] = util.cos_sim(emb_raw_q, emb_san_q).item()
+        metrics["aes_score"] = util.cos_sim(emb_raw_resp, emb_restored).item()
+        metrics["semantic_score"] = util.cos_sim(emb_raw_q, emb_restored).item()
+
+        # 4. Output Leakage Check
+        llm_sanitized_lower = state.llm_sanitized_response.lower()
+        for gt in ground_truth_sensitive:
+            if gt in llm_sanitized_lower:
+                metrics["output_leakage"] = 1
+                break
+
+        save_query_state(state, phase="completed")
+        return metrics
+
+    except Exception as e:
+        print(f"Error processing query {idx}: {e}")
+        return None
+
+# ==========================================
+# 3. MAIN ORCHESTRATOR
+# ==========================================
+
+def run_benchmark(csv_path: str, num_samples: int = 30):
     print(f"Loading dataset from {csv_path}...")
     df = pd.read_csv(csv_path)
-    
-    # Limit samples for testing if needed
     if num_samples and num_samples < len(df):
         df = df.sample(num_samples, random_state=42).copy()
 
-    # Initialize Pipeline Components
-    print("Initializing Models (GPU/API)...")
+    print("Initializing Gateway Components...")
     router = FastRoutingClassifier()
     extractor = GlinerExtractor()
     policy = LLMPolicyEvaluator()
+    
+    # UPDATED: Using Qwen 2.5 72B loaded on RunPod
+    generator_llm = RunPodLLM(model_name="qwen2.5:72b") 
 
-    # Tracking Counters
-    results = {
-        "domain_correct": 0,
-        "intent_correct": 0,
-        "total_queries": len(df),
-        "tp": 0, "fp": 0, "fn": 0
+    agg = {
+        "total": 0, "domain": 0, "intent": 0, "tp": 0, "fp": 0, "fn": 0,
+        "ips_sum": 0.0, "aes_sum": 0.0, "semantic_sum": 0.0, "leakage_count": 0
     }
 
-    print("\nStarting Benchmark Loop...")
-    for idx, row in tqdm(df.iterrows(), total=len(df)):
-        raw_query = str(row['original_query'])
-        expected_domain = str(row['domain']).strip().lower()
-        expected_intent = str(row['intent']).strip().lower()
+    print(f"\nStarting Benchmark with Qwen2.5-72B (RunPod)...")
+    with ThreadPoolExecutor(max_workers=5) as executor:
+        futures = {executor.submit(process_single_query, idx, row, router, extractor, policy, generator_llm): idx for idx, row in df.iterrows()}
         
-        # Ground Truth Privacy Sets (combine drop and abstract as 'Sensitive')
-        expected_s_drop = safe_eval(row['expected_S_drop'])
-        expected_s_abs = safe_eval(row['expected_S_abstract'])
-        ground_truth_sensitive = set(expected_s_drop + expected_s_abs)
+        for future in tqdm(as_completed(futures), total=len(futures)):
+            res = future.result()
+            if res:
+                agg["total"] += 1
+                agg["domain"] += res["domain_correct"]
+                agg["intent"] += res["intent_correct"]
+                agg["tp"] += res["query_tp"]
+                agg["fp"] += res["query_fp"]
+                agg["fn"] += res["query_fn"]
+                agg["ips_sum"] += res["ips_score"]
+                agg["aes_sum"] += res["aes_score"]
+                agg["semantic_sum"] += res["semantic_score"]
+                agg["leakage_count"] += res["output_leakage"]
 
-        # --- 1. Run Pipeline ---
-        state = QueryState(query_id=str(idx), raw_query=raw_query)
+    # --- FINAL MATH ---
+    if agg["total"] > 0:
+        precision = agg["tp"] / (agg["tp"] + agg["fp"]) if (agg["tp"] + agg["fp"]) > 0 else 0.0
+        recall = agg["tp"] / (agg["tp"] + agg["fn"]) if (agg["tp"] + agg["fn"]) > 0 else 0.0
+        f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0.0
         
-        try:
-            state.domain = router.process_domain(state)
-            state.intent = router.process_intent(state)
-            state.potential_labels = router.process_labels(state)
-            state.extracted_entities = extractor.process(state)
-            state.mappings = policy.process(state)
-            
-            # Optional: Save state to JSONL for debugging individual failures
-            # from state_logger import save_query_state
-            # save_query_state(state, phase="benchmark_eval")
-            
-        except Exception as e:
-            print(f"Error processing query {idx}: {e}")
-            continue
-
-        # --- 2. Evaluate Domain & Intent ---
-        pred_domain = str(state.domain).strip().lower()
-        pred_intent = str(state.intent).strip().lower()
-        
-        if is_semantically_correct(expected_domain, pred_domain, threshold=0.80):
-            results["domain_correct"] += 1
-            
-        # Intent matching can be fuzzy since LLMs might rephrase slightly
-        if is_semantically_correct(expected_intent, pred_intent, threshold=0.65):
-            results["intent_correct"] += 1
-        else:
-            # ADD THIS DEBUG PRINT
-            print(f"\n[INTENT FAILED] Expected: '{expected_intent}' | Qwen Guessed: '{pred_intent}'")
-
-        # --- 3. Evaluate Privacy Tokens (Overlap Matching instead of Strict) ---
-        predicted_sensitive = []
-        for mapping in state.mappings:
-            if mapping.action in ['drop', 'abstract', 'fake']:
-                predicted_sensitive.append(mapping.original_token.strip().lower())
-
-        query_tp = 0
-        query_fp = 0
-        
-        # Create a copy to track what we've matched
-        unmatched_ground_truth = list(ground_truth_sensitive)
-
-        # Calculate True Positives (with partial overlap) and False Positives
-        for pred in predicted_sensitive:
-            matched = False
-            for gt in unmatched_ground_truth:
-                # If the prediction is inside the ground truth OR ground truth inside prediction
-                if pred in gt or gt in pred:
-                    query_tp += 1
-                    unmatched_ground_truth.remove(gt) # Remove to avoid double counting
-                    matched = True
-                    break
-            
-            if not matched:
-                query_fp += 1 # We predicted it, but it wasn't in ground truth (Overmasking)
-
-        # Whatever is left in ground truth was missed (False Negatives)
-        query_fn = len(unmatched_ground_truth)
-
-        results["tp"] += query_tp
-        results["fp"] += query_fp
-        results["fn"] += query_fn
-        
-        # Respect API rate limits (Groq/Gemini have limits per minute on free tiers)
-        time.sleep(1)
-
-    # --- 4. Final Math & Report ---
-    domain_acc = results["domain_correct"] / results["total_queries"]
-    intent_acc = results["intent_correct"] / results["total_queries"]
-    
-    precision, recall, f1, overmasking, undermasking = calculate_metrics(
-        results["tp"], results["fp"], results["fn"]
-    )
-
-    print("\n" + "="*50)
-    print(" 🚀 BENCHMARK RESULTS (PRE-GENERATION) 🚀")
-    print("="*50)
-    print(f"Total Queries Evaluated : {results['total_queries']}")
-    print(f"Domain Accuracy         : {domain_acc:.2%}")
-    print(f"Intent Accuracy         : {intent_acc:.2%}")
-    print("-" * 50)
-    print(" 🛡️ PRIVACY METRICS (vs Ideal Range in PDF)")
-    print("-" * 50)
-    print(f"Precision               : {precision:.3f}  (Ideal: ~0.90)")
-    print(f"Recall                  : {recall:.3f}  (Ideal: >= 0.90)")
-    print(f"F1 Score                : {f1:.3f}  (Ideal: >= 0.90)")
-    print(f"Overmasking Rate (FP)   : {overmasking:.3f}  (Ideal: <= 0.10)")
-    print(f"Undermasking Rate (FN)  : {undermasking:.3f}  (Ideal: <= 0.10)")
-    print("="*50)
+        print("\n" + "="*60)
+        print(" 🚀 BENCHMARK SUMMARY (Qwen2.5-72B @ RunPod) 🚀")
+        print("="*60)
+        print(f"Total Queries        : {agg['total']}")
+        print(f"Domain Accuracy      : {agg['domain'] / agg['total']:.2%}")
+        print(f"Intent Accuracy      : {agg['intent'] / agg['total']:.2%}")
+        print("-" * 60)
+        print(f"Precision            : {precision:.3f}")
+        print(f"Recall               : {recall:.3f}")
+        print(f"F1 Score             : {f1:.3f}")
+        print("-" * 60)
+        print(f"IPS (Intent Pres.)   : {agg['ips_sum'] / agg['total']:.3f}")
+        print(f"AES (Answer Equiv.)  : {agg['aes_sum'] / agg['total']:.3f}")
+        print(f"Leakage Rate         : {agg['leakage_count'] / agg['total']:.2%}")
+        print("="*60)
 
 if __name__ == "__main__":
     DATASET_PATH = "btp_privacy_benchmark_final.csv"
-    
-    run_benchmark(DATASET_PATH, num_samples=30)
+    run_benchmark(DATASET_PATH, num_samples=500)

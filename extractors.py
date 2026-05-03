@@ -4,7 +4,9 @@ from interfaces import EntityExtractor, QueryState
 
 class GlinerExtractor(EntityExtractor):
     def __init__(self, model_name="fastino/gliner2-base-v1"):
-        self.model = GLiNER2.from_pretrained(model_name)
+        # In GlinerExtractor
+        self.model = GLiNER2.from_pretrained(model_name).to("cuda")
+        # self.model = GLiNER2.from_pretrained(model_name)
         # Removed hardcoded self.base_labels. The pipeline is now 100% dynamic.
 
     def process(self, state: QueryState) -> List[Dict[str, Any]]:
