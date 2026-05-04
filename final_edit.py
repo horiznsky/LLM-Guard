@@ -3,7 +3,7 @@ import ast
 
 def finalize_dataset(input_csv, output_csv):
     # Load the audited results
-    df = pd.read_csv(input_csv)
+    df = pd.read_csv(input_csv, on_bad_lines='skip')
     
     # Helper to parse the stringified dictionary from the audit
     def extract_list(val, key):
@@ -36,4 +36,4 @@ def finalize_dataset(input_csv, output_csv):
     print(f"✨ Finalized dataset saved to {output_csv}")
 
 if __name__ == "__main__":
-    finalize_dataset('btp_audit_results_verified.csv', 'btp_privacy_benchmark_final.csv')
+    finalize_dataset('btp_audit_results_verified.csv', 'btp_privacy_benchmark_final_final.csv')
